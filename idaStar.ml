@@ -5,6 +5,7 @@ let rec idaStar (start: 'a)
                 (maxDepth: int)
                 (depth: int)
                 : 'b list option =
+
   let rec search (state: 'a)
                  (depth: int)
                  (bound: int)
@@ -31,10 +32,7 @@ let rec idaStar (start: 'a)
     in
     iter successors
   in
+
   match search start 0 depth [] with
   | (_, Some path) -> Some path
   | (t, None) -> idaStar start isGoal getSuccessors h maxDepth t
-
-
-
-

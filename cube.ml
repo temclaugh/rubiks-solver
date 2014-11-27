@@ -1,37 +1,21 @@
-type color_t = White | Yellow | Red | Orange | Blue | Green
+type color_t = White | Yellow | Red | Orange | Blue | Green | Blank
 type turn = Up | Down | Left | Right | Bottom | Top
 
-type cubie_t =
-  Corner of color_t ref * color_t ref * color_t ref
-| Edge of color_t ref * color_t ref
-
-type face_t = color_t * cubie_t list
-
-type cube_t = {
-  front: face_t;
-  back: face_t;
-  left: face_t;
-  right: face_t;
-  up: face_t;
-  down: face_t
-}
-
-let solved cube =
-  let rec s color cubies =
-    match cubies with
-    | [] -> true
-    | Corner(color_ref, _, _)::tl | Edge(color_ref, _)::tl ->
-      !color_ref = color && s color tl
-  in
-  s (fst cube.front) (snd cube.front) &&
-  s (fst cube.back) (snd cube.back) &&
-  s (fst cube.left) (snd cube.left) &&
-  s (fst cube.right) (snd cube.right) &&
-  s (fst cube.up) (snd cube.up) &&
-  s (fst cube.down) (snd cube.down)
+type cube_t = color_t array
 
 
-let color2string color =
+
+let initCube () =
+  let cube = Array.make 54 Blank in
+  let colors = [|Yellow; Green; Orange; Blue; Red; White|] in
+  for i = 0 to 5 do
+    for j = 0 to 8 do
+      cube.(9 * i + j) <- colors.(i)
+    done;
+  done;
+  cube
+
+let color2string (color: color_t) : string =
   match color with
   | White -> "W"
   | Yellow -> "Y"
@@ -39,7 +23,40 @@ let color2string color =
   | Orange -> "O"
   | Blue -> "B"
   | Green -> "G"
+  | Blank -> "_"
+
+let printCube (cube: cube_t) =
+  let p = Printf.printf in
+  for i = 0 to 2 do
+    p "      ";
+    for j = 0 to 2 do
+      p "%s " (color2string cube.(3 * i + j))
+    done;
+    p "\n";
+  done;
+  for i = 0 to 2 do
+    for j = 0 to 2 do
+      p "%s " (color2string cube.(9 + 3 * i + j))
+    done;
+    for j = 0 to 2 do
+      p "%s " (color2string cube.(18 + 3 * i + j))
+    done;
+    for j = 0 to 2 do
+      p "%s " (color2string cube.(27 + 3 * i + j))
+    done;
+    for j = 0 to 2 do
+      p "%s " (color2string cube.(36 + 3 * i + j))
+    done;
+    p "\n";
+  done;
+  for i = 0 to 2 do
+    p "      ";
+    for j = 0 to 2 do
+      p "%s " (color2string cube.(45 + 3 * i + j))
+    done;
+    p "\n";
+  done; ()
 
 let _ =
-  Printf.printf "blah\n"
+  printCube (initCube ())
 
