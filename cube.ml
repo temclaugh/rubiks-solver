@@ -63,6 +63,9 @@ let printCube (cube: cube_t) =
   done; ()
 
 let _ =
-  let cube = Turns.d2 (initCube ()) in
+  let cube = Turns.u (initCube ()) in
+  let cube = Turns.l2 cube in
+  let cube = Turns.l2 cube in
+  let cube = Turns.u' cube in
   printCube cube
 

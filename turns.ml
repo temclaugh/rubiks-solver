@@ -1,27 +1,16 @@
 open Types
 open Array
 
-(*
-0 8
-1 7
-2 6
-3 5
-4 4
-5 3
-6 2
-7 1
-8 0
-*)
-
 let clockwise i = (i / 3) + (6 - 3 * (i mod 3))
 let counterClockwise i = 2 - (i / 3) + 3 * (i mod 3)
 let oneEighty i = 8 - i
+
 
 let u cube =
   let newCube = copy cube in
   let offset = 0 in
   for i = 0 to 8 do
-    newCube.(offset + i) <- cube.(clockwise i);
+    newCube.(offset + i) <- cube.(offset + clockwise i);
   done;
   newCube.(9) <- cube.(18);
   newCube.(10) <- cube.(19);
@@ -41,7 +30,7 @@ let u' cube =
   let newCube = copy cube in
   let offset = 0 in
   for i = 0 to 8 do
-    newCube.(offset + i) <- cube.(counterClockwise i);
+    newCube.(offset + i) <- cube.(offset + counterClockwise i);
   done;
   newCube.(18) <- cube.(9);
   newCube.(19) <- cube.(10);
@@ -61,7 +50,7 @@ let u2 cube =
   let newCube = copy cube in
   let offset = 0 in
   for i = 0 to 8 do
-    newCube.(offset + i) <- cube.(oneEighty i);
+    newCube.(offset + i) <- cube.(offset + oneEighty i);
   done;
   newCube.(9) <- cube.(27);
   newCube.(10) <- cube.(28);
@@ -81,7 +70,7 @@ let d cube =
   let newCube = copy cube in
   let offset = 45 in
   for i = 0 to 8 do
-    newCube.(offset + i) <- cube.(clockwise i);
+    newCube.(offset + i) <- cube.(offset + clockwise i);
   done;
   newCube.(24) <- cube.(15);
   newCube.(25) <- cube.(16);
@@ -101,7 +90,7 @@ let d' cube =
   let newCube = copy cube in
   let offset = 45 in
   for i = 0 to 8 do
-    newCube.(offset + i) <- cube.(counterClockwise i);
+    newCube.(offset + i) <- cube.(offset + counterClockwise i);
   done;
   newCube.(15) <- cube.(24);
   newCube.(16) <- cube.(25);
@@ -121,7 +110,7 @@ let d2 cube =
   let newCube = copy cube in
   let offset = 45 in
   for i = 0 to 8 do
-    newCube.(offset + i) <- cube.(oneEighty i);
+    newCube.(offset + i) <- cube.(offset + oneEighty i);
   done;
   newCube.(15) <- cube.(33);
   newCube.(16) <- cube.(34);
@@ -139,14 +128,62 @@ let d2 cube =
 
 let l cube =
   let newCube = copy cube in
+  let offset = 9 in
+  for i = 0 to 8 do
+    newCube.(offset + i) <- cube.(offset + clockwise i);
+  done;
+  newCube.(0) <- cube.(44);
+  newCube.(3) <- cube.(41);
+  newCube.(6) <- cube.(38);
+  newCube.(18) <- cube.(0);
+  newCube.(21) <- cube.(3);
+  newCube.(24) <- cube.(6);
+  newCube.(45) <- cube.(18);
+  newCube.(48) <- cube.(21);
+  newCube.(51) <- cube.(24);
+  newCube.(44) <- cube.(45);
+  newCube.(41) <- cube.(48);
+  newCube.(38) <- cube.(51);
   newCube
 
 let l' cube =
   let newCube = copy cube in
+  let offset = 9 in
+  for i = 0 to 8 do
+    newCube.(offset + i) <- cube.(offset + counterClockwise i);
+  done;
+  newCube.(44) <- cube.(0);
+  newCube.(41) <- cube.(3);
+  newCube.(38) <- cube.(6);
+  newCube.(0) <- cube.(18);
+  newCube.(3) <- cube.(21);
+  newCube.(6) <- cube.(24);
+  newCube.(18) <- cube.(45);
+  newCube.(21) <- cube.(48);
+  newCube.(24) <- cube.(51);
+  newCube.(45) <- cube.(44);
+  newCube.(48) <- cube.(41);
+  newCube.(51) <- cube.(38);
   newCube
 
 let l2 cube =
   let newCube = copy cube in
+  let offset = 9 in
+  for i = 0 to 8 do
+    newCube.(offset + i) <- cube.(offset + oneEighty i);
+  done;
+  newCube.(44) <- cube.(18);
+  newCube.(41) <- cube.(21);
+  newCube.(38) <- cube.(24);
+  newCube.(0) <- cube.(45);
+  newCube.(3) <- cube.(48);
+  newCube.(6) <- cube.(51);
+  newCube.(18) <- cube.(44);
+  newCube.(21) <- cube.(41);
+  newCube.(24) <- cube.(38);
+  newCube.(45) <- cube.(0);
+  newCube.(48) <- cube.(3);
+  newCube.(51) <- cube.(6);
   newCube
 
 let r cube =
@@ -161,6 +198,18 @@ let r2 cube =
   let newCube = copy cube in
   newCube
 
+let f cube =
+  let newCube = copy cube in
+  newCube
+
+let f' cube =
+  let newCube = copy cube in
+  newCube
+
+let f2 cube =
+  let newCube = copy cube in
+  newCube
+
 let b cube =
   let newCube = copy cube in
   newCube
@@ -170,18 +219,6 @@ let b' cube =
   newCube
 
 let b2 cube =
-  let newCube = copy cube in
-  newCube
-
-let t cube =
-  let newCube = copy cube in
-  newCube
-
-let t' cube =
-  let newCube = copy cube in
-  newCube
-
-let t2 cube =
   let newCube = copy cube in
   newCube
 
