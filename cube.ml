@@ -1,9 +1,4 @@
-type color_t = White | Yellow | Red | Orange | Blue | Green | Blank
-type turn = Up | Down | Left | Right | Bottom | Top
-
-type cube_t = color_t array
-
-
+open Types
 
 let initCube () =
   let cube = Array.make 54 Blank in
@@ -26,37 +21,48 @@ let color2string (color: color_t) : string =
   | Blank -> "_"
 
 let printCube (cube: cube_t) =
-  let p = Printf.printf in
+  let open Printf in
+  let p s i =
+    printf "%s%2d " s i;
+  in
+  let newLine () = printf "\n" in
   for i = 0 to 2 do
-    p "      ";
+    printf "            ";
     for j = 0 to 2 do
-      p "%s " (color2string cube.(3 * i + j))
+      let index = 3 * i + j in
+      p (color2string cube.(index)) index
     done;
-    p "\n";
+    newLine ();
   done;
   for i = 0 to 2 do
     for j = 0 to 2 do
-      p "%s " (color2string cube.(9 + 3 * i + j))
+      let index = 9 + 3 * i + j in
+      p (color2string cube.(index)) index
     done;
     for j = 0 to 2 do
-      p "%s " (color2string cube.(18 + 3 * i + j))
+      let index = 18 + 3 * i + j in
+      p (color2string cube.(index)) index
     done;
     for j = 0 to 2 do
-      p "%s " (color2string cube.(27 + 3 * i + j))
+      let index = 27 + 3 * i + j in
+      p (color2string cube.(index)) index
     done;
     for j = 0 to 2 do
-      p "%s " (color2string cube.(36 + 3 * i + j))
+      let index = 36 + 3 * i + j in
+      p (color2string cube.(index)) index
     done;
-    p "\n";
+    newLine ();
   done;
   for i = 0 to 2 do
-    p "      ";
+    printf "            ";
     for j = 0 to 2 do
-      p "%s " (color2string cube.(45 + 3 * i + j))
+      let index = 45 + 3 * i + j in
+      p (color2string cube.(index)) index
     done;
-    p "\n";
+    newLine ();
   done; ()
 
 let _ =
-  printCube (initCube ())
+  let cube = Turns.d2 (initCube ()) in
+  printCube cube
 

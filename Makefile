@@ -1,2 +1,2 @@
 all:
-	ocamlc cube.ml -o cube
+	ocamlc -o cube types.ml turns.ml cube.ml
