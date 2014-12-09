@@ -10,6 +10,26 @@ let initCube () =
   done;
   cube
 
+let cornerCube () =
+  let cube = initCube () in
+  let rec loop offset even =
+    if offset = 54 then
+      cube
+    else
+      begin
+        for i = 0 to 8 do
+          let index = offset + i in
+          let odd = not (index mod 2 = 0) in
+          if (odd && even) || not (odd || even) then
+            cube.(index) <- Blank
+        done;
+        loop (offset + 9) (not even)
+      end
+  in
+  loop 0 true
+
+
+
 let color2string (color: color_t) : string =
   match color with
   | White -> "W"
@@ -60,17 +80,23 @@ let printCube (cube: cube_t) =
       p (color2string cube.(index)) index
     done;
     newLine ();
-  done; ()
+  done;
+  newLine ()
+
+let moves cube =
+  let open Turns in
+  let turns = [u;u';u2;d;d';d2;l;l';l2;r;r';r2;f;f';f2;b;b';b2] in
+  let v =
+  List.map (fun f -> f cube) turns
+  in
+  let _ = List.iter printCube v in v
 
 let _ =
   let open Turns in
-  let moves = [r; u'; r; u; r; u; r; u'; r'; u';r2] in
-  let moves = [b2] in
   let rec apply moves cube =
     match moves with
     | [] -> cube
     | move::tl -> apply tl (move cube)
   in
-  let cube = apply moves (initCube ()) in
-  printCube cube
+  Printf.printf "%b\n" (b2 (b2 (initCube ())) = initCube ())
 
