@@ -28,6 +28,7 @@ let cornerCube () =
   in
   loop 0 true
 
+let cube2string cube = ""
 
 
 let color2string (color: color_t) : string =
