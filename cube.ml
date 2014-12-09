@@ -63,9 +63,14 @@ let printCube (cube: cube_t) =
   done; ()
 
 let _ =
-  let cube = Turns.u (initCube ()) in
-  let cube = Turns.l2 cube in
-  let cube = Turns.l2 cube in
-  let cube = Turns.u' cube in
+  let open Turns in
+  let moves = [r; u'; r; u; r; u; r; u'; r'; u';r2] in
+  let moves = [b2] in
+  let rec apply moves cube =
+    match moves with
+    | [] -> cube
+    | move::tl -> apply tl (move cube)
+  in
+  let cube = apply moves (initCube ()) in
   printCube cube
 
