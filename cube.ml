@@ -28,7 +28,22 @@ let cornerCube () =
   in
   loop 0 true
 
-let cube2string cube = ""
+let color2char (color: color_t) : char =
+  match color with
+  | White -> 'W'
+  | Yellow -> 'Y'
+  | Red -> 'R'
+  | Orange -> 'O'
+  | Blue -> 'B'
+  | Green -> 'G'
+  | Blank -> '_'
+
+let cube2string cube =
+  let s = String.make 54 '_' in
+  for i = 0 to 53 do
+    s.[i] <- (color2char cube.(i))
+  done;
+  s
 
 let cubeCompare x y =
   let rec iter i =
@@ -42,7 +57,6 @@ let cubeCompare x y =
       iter (i + 1)
   in
   iter 0
-
 
 let color2string (color: color_t) : string =
   match color with
@@ -104,8 +118,8 @@ let printCubeFlat cube =
 
 let moves cube =
   let open Turns in
-  let turns = [u;u';u2;d;d';d2;l;l';l2;r;r';r2;f;f';f2;b;b';b2] in
-  List.map (fun f -> f cube) turns
+  let turns = [Up,u;Up,u';Up,u2;Down,d;Down,d';Down,d2;Left,l;Left,l';Left,l2;Right,r;Right,r';Right,r2;Front,f;Front,f';Front,f2;Back,b;Back,b';Back,b2] in
+  List.map (fun (face, move) -> (face, move cube)) turns
 (*
 let _ =
   let open Turns in

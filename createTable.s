@@ -17,27 +17,27 @@ _camlCreateTable:
 	.space	8
 	.data
 	.quad	3319
-_camlCreateTable__50:
+_camlCreateTable__51:
 	.quad	_caml_curry2
 	.quad	5
 	.quad	_camlCreateTable__f_1011
 	.data
-	.globl	_camlCreateTable__47
+	.globl	_camlCreateTable__48
 	.quad	3324
-_camlCreateTable__47:
+_camlCreateTable__48:
 	.ascii	"CreateTable.UsageError"
 	.space	1
 	.byte	1
 	.data
-	.globl	_camlCreateTable__48
-	.quad	1276
-_camlCreateTable__48:
-	.ascii	"corners"
-	.byte	0
-	.data
 	.globl	_camlCreateTable__49
 	.quad	1276
 _camlCreateTable__49:
+	.ascii	"corners"
+	.byte	0
+	.data
+	.globl	_camlCreateTable__50
+	.quad	1276
+_camlCreateTable__50:
 	.ascii	",%d\12"
 	.space	3
 	.byte	3
@@ -48,13 +48,13 @@ _camlCreateTable__f_1011:
 	.cfi_startproc
 	subq	$8, %rsp
 	.cfi_adjust_cfa_offset	8
-.L2007:
+.L2034:
 	movq	%rbx, 0(%rsp)
-	call	_camlCube__printCubeFlat_1072
-.L2008:
-	movq	_camlCreateTable__49@GOTPCREL(%rip), %rax
+	call	_camlCube__printCubeFlat_1076
+.L2035:
+	movq	_camlCreateTable__50@GOTPCREL(%rip), %rax
 	call	_camlPrintf__printf_1369
-.L2009:
+.L2036:
 	movq	%rax, %rbx
 	movq	(%rbx), %rdi
 	movq	0(%rsp), %rax
@@ -70,12 +70,12 @@ _camlCreateTable__entry:
 	.cfi_startproc
 	subq	$8, %rsp
 	.cfi_adjust_cfa_offset	8
-.L2014:
+.L2041:
 	call	_caml_alloc1
-.L2015:
+.L2042:
 	leaq	8(%r15), %rax
 	movq	$1024, -8(%rax)
-	movq	_camlCreateTable__47@GOTPCREL(%rip), %rbx
+	movq	_camlCreateTable__48@GOTPCREL(%rip), %rbx
 	movq	%rbx, (%rax)
 	movq	_camlCreateTable@GOTPCREL(%rip), %rbx
 	movq	%rax, (%rbx)
@@ -85,9 +85,9 @@ _camlCreateTable__entry:
 	shrq	$9, %rax
 	orq	$1, %rax
 	cmpq	$5, %rax
-	je	.L2013
+	je	.L2040
 	call	_caml_alloc1
-.L2016:
+.L2043:
 	leaq	8(%r15), %rax
 	movq	$1024, -8(%rax)
 	movq	_camlCreateTable@GOTPCREL(%rip), %rbx
@@ -96,19 +96,19 @@ _camlCreateTable__entry:
 	movq	%r14, %rsp
 	popq	%r14
 	ret
-.L2013:
+.L2040:
 	movq	_camlSys@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	-8(%rax), %rbx
 	cmpq	$2047, %rbx
-	jbe	.L2017
+	jbe	.L2044
 	movq	8(%rax), %rdi
-	movq	_camlCreateTable__48@GOTPCREL(%rip), %rsi
+	movq	_camlCreateTable__49@GOTPCREL(%rip), %rsi
 	call	_caml_string_notequal
 	cmpq	$1, %rax
-	je	.L2012
+	je	.L2039
 	call	_caml_alloc1
-.L2018:
+.L2045:
 	leaq	8(%r15), %rax
 	movq	$1024, -8(%rax)
 	movq	_camlCreateTable@GOTPCREL(%rip), %rbx
@@ -117,25 +117,25 @@ _camlCreateTable__entry:
 	movq	%r14, %rsp
 	popq	%r14
 	ret
-.L2012:
+.L2039:
 	movq	$1, %rax
 	call	_camlCube__cornerCube_1013
-.L2019:
-.L2011:
+.L2046:
+.L2038:
 	movq	_camlCube@GOTPCREL(%rip), %rbx
-	movq	56(%rbx), %rbx
-	movq	_camlCreateTable__50@GOTPCREL(%rip), %rsi
+	movq	64(%rbx), %rbx
+	movq	_camlCreateTable__51@GOTPCREL(%rip), %rsi
 	movq	_camlCube@GOTPCREL(%rip), %rdi
 	movq	24(%rdi), %rdi
-	call	_camlSearch__bfs_1068
-.L2020:
-.L2010:
+	call	_camlSearch__bfs_1069
+.L2047:
+.L2037:
 	movq	$1, %rax
 	addq	$8, %rsp
 	.cfi_adjust_cfa_offset	-8
 	ret
 	.cfi_adjust_cfa_offset	8
-.L2017:	call	_caml_ml_array_bound_error
+.L2044:	call	_caml_ml_array_bound_error
 	.cfi_endproc
 	.data
 	.text
@@ -149,32 +149,32 @@ _camlCreateTable__data_end:
 	.globl	_camlCreateTable__frametable
 _camlCreateTable__frametable:
 	.quad	7
-	.quad	.L2020
+	.quad	.L2047
 	.word	16
 	.word	0
 	.align	3
-	.quad	.L2019
+	.quad	.L2046
 	.word	16
 	.word	0
 	.align	3
-	.quad	.L2018
+	.quad	.L2045
 	.word	16
 	.word	0
 	.align	3
-	.quad	.L2016
+	.quad	.L2043
 	.word	16
 	.word	0
 	.align	3
-	.quad	.L2015
+	.quad	.L2042
 	.word	16
 	.word	0
 	.align	3
-	.quad	.L2009
+	.quad	.L2036
 	.word	16
 	.word	1
 	.word	0
 	.align	3
-	.quad	.L2008
+	.quad	.L2035
 	.word	16
 	.word	1
 	.word	0

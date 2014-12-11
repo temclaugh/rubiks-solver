@@ -1,26 +1,34 @@
 module NodeSet = Set.Make(struct
-  type t = Types.cube_t
-  let compare = Cube.cubeCompare
+  type t = string
+  let compare = String.compare
 end)
 
-let bfs (root: 'a) (expand: 'a -> 'a list) (nodeCompare: 'a -> 'a -> int) (f: 'a -> int -> unit) =
+let numPermutations = 88179840
+
+let bfs (root: 'a) (expand: 'a -> ('b * 'a) list) (toString: 'a -> string) (f: 'a -> int -> unit) =
 
   let c = ref 0 in
-  let q: ('a * int) Queue.t = Queue.create () in
-  Queue.add (root, 0) q;
-  let seen = ref (NodeSet.singleton root) in
+  let q: ('b * 'a * int) Queue.t = Queue.create () in
+  Queue.add (Types.NoFace, root, 0) q;
+  let seen = ref (NodeSet.singleton (toString root)) in
 
   while not (Queue.is_empty q) do
     incr c;
     if ((!c mod 1000) = 0) then begin
-      prerr_float ((float_of_int !c) /. (float_of_int 3674160));
+      prerr_float ((float_of_int !c) /. (float_of_int numPermutations));
       prerr_newline ();
     end;
-    let node, depth = Queue.take q in
-    seen := NodeSet.add node !seen;
+    let prevMove, node, depth = Queue.take q in
+    seen := NodeSet.add (toString node) !seen;
     f node depth;
-    let filter x = not (NodeSet.mem x !seen) in
-    let children = List.filter filter (expand node) in
-    List.iter (fun x -> Queue.add (x, depth + 1) q) children;
+    let nodeFilter (move, node') = 
+      if prevMove = move then
+        false
+      else
+        not (NodeSet.mem (toString node') !seen)
+    in
+    let children = List.filter nodeFilter (expand node) in
+    let _  = Printf.printf ">>>%d\n" (List.length children) in
+    List.iter (fun (move, node) -> Queue.add (move, node, depth + 1) q) children;
   done
 

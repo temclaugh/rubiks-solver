@@ -14,4 +14,4 @@ let _ =
       Cube.printCubeFlat cube;
       Printf.printf ",%d\n" depth
     in
-    Search.bfs root expand Cube.cubeCompare f
+    Search.bfs root expand Cube.cube2string f
