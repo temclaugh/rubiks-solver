@@ -11,70 +11,77 @@ _camlCube__data_begin:
 _camlCube__code_begin:
 	nop
 	.data
-	.quad	9216
+	.quad	9984
 	.globl	_camlCube
 _camlCube:
-	.space	72
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
 	.data
-	.quad	2295
-_camlCube__35:
-	.quad	_camlCube__moves_1079
+	.quad	3063
+_camlCube__50:
+	.quad	_camlCube__moves_1058
 	.quad	3
 	.data
-	.quad	2295
-_camlCube__36:
-	.quad	_camlCube__printCubeFlat_1076
+	.quad	3063
+_camlCube__51:
+	.quad	_camlCube__printCubeFlat_1055
 	.quad	3
 	.data
-	.quad	2295
-_camlCube__37:
+	.quad	3063
+_camlCube__52:
 	.quad	_camlCube__printCube_1034
 	.quad	3
 	.data
-	.quad	2295
-_camlCube__38:
+	.quad	3063
+_camlCube__53:
 	.quad	_camlCube__color2string_1032
 	.quad	3
 	.data
-	.quad	3319
-_camlCube__39:
+	.quad	4087
+_camlCube__54:
 	.quad	_caml_curry2
 	.quad	5
 	.quad	_camlCube__cubeCompare_1027
 	.data
-	.quad	2295
-_camlCube__40:
-	.quad	_camlCube__cube2string_1023
+	.quad	3063
+_camlCube__55:
+	.quad	_camlCube__cube2bytes_1023
 	.quad	3
 	.data
-	.quad	2295
-_camlCube__41:
+	.quad	3063
+_camlCube__56:
 	.quad	_camlCube__color2char_1021
 	.quad	3
 	.data
-	.quad	2295
-_camlCube__42:
+	.quad	3063
+_camlCube__57:
 	.quad	_camlCube__cornerCube_1013
 	.quad	3
 	.data
-	.quad	2295
-_camlCube__43:
+	.quad	3063
+_camlCube__58:
 	.quad	_camlCube__initCube_1008
 	.quad	3
 	.data
-	.quad	2295
-_camlCube__44:
-	.quad	_camlCube__newLine_1060
+	.quad	3063
+_camlCube__59:
+	.quad	_camlCube__newLine_1039
 	.quad	3
 	.data
-	.quad	3319
-_camlCube__45:
+	.quad	4087
+_camlCube__60:
 	.quad	_caml_curry2
 	.quad	5
-	.quad	_camlCube__p_1057
+	.quad	_camlCube__p_1036
 	.data
-	.globl	_camlCube__22
-	.quad	6144
+	.quad	6912
 _camlCube__22:
 	.quad	3
 	.quad	11
@@ -83,128 +90,200 @@ _camlCube__22:
 	.quad	5
 	.quad	1
 	.data
-	.globl	_camlCube__23
-	.quad	1276
+	.quad	2044
 _camlCube__23:
 	.ascii	"W"
 	.space	6
 	.byte	6
 	.data
-	.globl	_camlCube__24
-	.quad	1276
+	.quad	2044
 _camlCube__24:
 	.ascii	"Y"
 	.space	6
 	.byte	6
 	.data
-	.globl	_camlCube__25
-	.quad	1276
+	.quad	2044
 _camlCube__25:
 	.ascii	"R"
 	.space	6
 	.byte	6
 	.data
-	.globl	_camlCube__26
-	.quad	1276
+	.quad	2044
 _camlCube__26:
 	.ascii	"O"
 	.space	6
 	.byte	6
 	.data
-	.globl	_camlCube__27
-	.quad	1276
+	.quad	2044
 _camlCube__27:
 	.ascii	"B"
 	.space	6
 	.byte	6
 	.data
-	.globl	_camlCube__28
-	.quad	1276
+	.quad	2044
 _camlCube__28:
 	.ascii	"G"
 	.space	6
 	.byte	6
 	.data
-	.globl	_camlCube__29
-	.quad	1276
+	.quad	2044
 _camlCube__29:
 	.ascii	"_"
 	.space	6
 	.byte	6
 	.data
-	.globl	_camlCube__30
-	.quad	1276
+	.quad	2816
 _camlCube__30:
+	.quad	3
+	.quad	5
+	.data
+	.quad	2828
+_camlCube__31:
+	.quad	65
+	.quad	1
+	.data
+	.quad	4868
+_camlCube__32:
+	.quad	1
+	.quad	_camlCube__30
+	.quad	1
+	.quad	_camlCube__31
+	.data
+	.quad	2818
+_camlCube__33:
+	.quad	1
+	.quad	_camlCube__32
+	.data
+	.quad	2044
+_camlCube__34:
 	.ascii	"%s%2d "
 	.space	1
 	.byte	1
 	.data
-	.globl	_camlCube__31
-	.quad	1276
-_camlCube__31:
+	.quad	2816
+_camlCube__35:
+	.quad	_camlCube__33
+	.quad	_camlCube__34
+	.data
+	.quad	2828
+_camlCube__36:
+	.quad	21
+	.quad	1
+	.data
+	.quad	2044
+_camlCube__37:
 	.ascii	"\12"
 	.space	6
 	.byte	6
 	.data
-	.globl	_camlCube__32
-	.quad	2300
-_camlCube__32:
+	.quad	2816
+_camlCube__38:
+	.quad	_camlCube__36
+	.quad	_camlCube__37
+	.data
+	.quad	3068
+_camlCube__39:
 	.ascii	"            "
 	.space	3
 	.byte	3
 	.data
-	.globl	_camlCube__33
-	.quad	2300
-_camlCube__33:
+	.quad	2827
+_camlCube__40:
+	.quad	_camlCube__39
+	.quad	1
+	.data
+	.quad	3068
+_camlCube__41:
 	.ascii	"            "
 	.space	3
 	.byte	3
 	.data
-	.globl	_camlCube__34
-	.quad	1276
-_camlCube__34:
+	.quad	2816
+_camlCube__42:
+	.quad	_camlCube__40
+	.quad	_camlCube__41
+	.data
+	.quad	3068
+_camlCube__43:
+	.ascii	"            "
+	.space	3
+	.byte	3
+	.data
+	.quad	2827
+_camlCube__44:
+	.quad	_camlCube__43
+	.quad	1
+	.data
+	.quad	3068
+_camlCube__45:
+	.ascii	"            "
+	.space	3
+	.byte	3
+	.data
+	.quad	2816
+_camlCube__46:
+	.quad	_camlCube__44
+	.quad	_camlCube__45
+	.data
+	.quad	2818
+_camlCube__47:
+	.quad	1
+	.quad	1
+	.data
+	.quad	2044
+_camlCube__48:
 	.ascii	"%s"
 	.space	5
 	.byte	5
+	.data
+	.quad	2816
+_camlCube__49:
+	.quad	_camlCube__47
+	.quad	_camlCube__48
 	.text
 	.align	4
 	.globl	_camlCube__loop_1015
 _camlCube__loop_1015:
 	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_adjust_cfa_offset	8
 .L1851:
-	movq	%rax, %r8
-	cmpq	$109, %r8
+	movq	%rax, %rcx
+	cmpq	$109, %rcx
 	jne	.L1850
 	movq	24(%rdi), %rax
+	addq	$8, %rsp
+	.cfi_adjust_cfa_offset	-8
 	ret
+	.cfi_adjust_cfa_offset	8
 	.align	2
 .L1850:
 	movq	$1, %rsi
 	cmpq	$17, %rsi
 	jg	.L1845
 .L1846:
-	leaq	-1(%r8, %rsi), %rcx
-	movq	%rcx, %rdx
-	sarq	$1, %rdx
+	leaq	-1(%rcx, %rsi), %rdx
 	movq	%rdx, %rax
-	testq	%rax, %rax
-	leaq	1(%rax), %rax
-	cmovns	%rdx, %rax
-	andq	$-2, %rax
-	subq	%rax, %rdx
-	leaq	1(%rdx, %rdx), %rax
+	sarq	$1, %rax
+	movq	%rax, %r8
+	shrq	$63, %r8
+	movq	%rax, %r9
+	addq	%r8, %r9
+	andq	$-2, %r9
+	subq	%r9, %rax
+	leaq	1(%rax, %rax), %rax
 	cmpq	$1, %rax
 	sete	%al
 	movzbq	%al, %rax
 	leaq	1(%rax, %rax), %rax
-	movq	$4, %rdx
-	subq	%rax, %rdx
-	cmpq	$1, %rdx
+	movq	$4, %r8
+	subq	%rax, %r8
+	cmpq	$1, %r8
 	je	.L1849
 	cmpq	$1, %rbx
 	jne	.L1848
 .L1849:
-	cmpq	$1, %rdx
+	cmpq	$1, %r8
 	jne	.L1847
 	cmpq	$1, %rbx
 	je	.L1848
@@ -212,11 +291,11 @@ _camlCube__loop_1015:
 	.align	2
 .L1848:
 	movq	24(%rdi), %rax
-	movq	-8(%rax), %rdx
-	shrq	$9, %rdx
-	cmpq	%rcx, %rdx
+	movq	-8(%rax), %r8
+	shrq	$9, %r8
+	cmpq	%rdx, %r8
 	jbe	.L1852
-	movq	$13, -4(%rax, %rcx, 4)
+	movq	$13, -4(%rax, %rdx, 4)
 .L1847:
 	movq	%rsi, %rax
 	addq	$2, %rsi
@@ -225,7 +304,7 @@ _camlCube__loop_1015:
 .L1845:
 	movq	$4, %rsi
 	subq	%rbx, %rsi
-	movq	%r8, %rax
+	movq	%rcx, %rax
 	addq	$18, %rax
 	movq	%rsi, %rbx
 	jmp	.L1851
@@ -386,16 +465,18 @@ _camlCube__iter_1030:
 	.cfi_endproc
 	.text
 	.align	4
-	.globl	_camlCube__p_1057
-_camlCube__p_1057:
+	.globl	_camlCube__p_1036
+_camlCube__p_1036:
 	.cfi_startproc
 	subq	$24, %rsp
 	.cfi_adjust_cfa_offset	24
 .L1880:
 	movq	%rax, 0(%rsp)
 	movq	%rbx, 8(%rsp)
-	movq	_camlCube__30@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
+	movq	_camlCube__35@GOTPCREL(%rip), %rbx
+	movq	_camlPervasives@GOTPCREL(%rip), %rax
+	movq	184(%rax), %rax
+	call	_camlPrintf__fprintf_1025
 .L1881:
 	movq	%rax, %rdi
 	movq	0(%rsp), %rax
@@ -407,17 +488,19 @@ _camlCube__p_1057:
 	.cfi_endproc
 	.text
 	.align	4
-	.globl	_camlCube__newLine_1060
-_camlCube__newLine_1060:
+	.globl	_camlCube__newLine_1039
+_camlCube__newLine_1039:
 	.cfi_startproc
 .L1882:
-	movq	_camlCube__31@GOTPCREL(%rip), %rax
-	jmp	_camlPrintf__printf_1369
+	movq	_camlCube__38@GOTPCREL(%rip), %rbx
+	movq	_camlPervasives@GOTPCREL(%rip), %rax
+	movq	184(%rax), %rax
+	jmp	_camlPrintf__fprintf_1025
 	.cfi_endproc
 	.text
 	.align	4
-	.globl	_camlCube__fun_1121
-_camlCube__fun_1121:
+	.globl	_camlCube__fun_1096
+_camlCube__fun_1096:
 	.cfi_startproc
 	subq	$8, %rsp
 	.cfi_adjust_cfa_offset	8
@@ -591,17 +674,19 @@ _camlCube__color2char_1021:
 	.cfi_endproc
 	.text
 	.align	4
-	.globl	_camlCube__cube2string_1023
-_camlCube__cube2string_1023:
+	.globl	_camlCube__cube2bytes_1023
+_camlCube__cube2bytes_1023:
 	.cfi_startproc
 	subq	$40, %rsp
 	.cfi_adjust_cfa_offset	40
 .L1912:
 	movq	%rax, 0(%rsp)
-	movq	$191, %rbx
-	movq	$109, %rax
-	call	_camlString__make_1016
+	movq	$109, %rdi
+	movq	_caml_create_string@GOTPCREL(%rip), %rax
+	call	_caml_c_call
 .L1913:
+	movq	_caml_young_ptr@GOTPCREL(%rip), %r11
+	movq    (%r11), %r15
 	movq	%rax, %rbx
 	movq	$1, %rax
 	cmpq	$107, %rax
@@ -732,19 +817,19 @@ _camlCube__printCube_1034:
 	subq	$40, %rsp
 	.cfi_adjust_cfa_offset	40
 .L1947:
-	movq	%rax, 32(%rsp)
-	movq	_camlCube__45@GOTPCREL(%rip), %rax
-	movq	_camlCube__44@GOTPCREL(%rip), %rax
+	movq	%rax, 24(%rsp)
 	movq	$1, %rax
 	cmpq	$5, %rax
 	jg	.L1943
 	movq	%rax, 0(%rsp)
 .L1944:
-	movq	_camlCube__32@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
+	movq	_camlCube__42@GOTPCREL(%rip), %rbx
+	movq	_camlPervasives@GOTPCREL(%rip), %rax
+	movq	184(%rax), %rax
+	call	_camlPrintf__fprintf_1025
 .L1948:
 	movq	$1, %rax
-	movq	%rax, 24(%rsp)
+	movq	%rax, 16(%rsp)
 	cmpq	$5, %rax
 	jg	.L1945
 .L1946:
@@ -752,8 +837,8 @@ _camlCube__printCube_1034:
 	sarq	$1, %rbx
 	imulq	$6, %rbx
 	addq	%rax, %rbx
-	movq	%rbx, 16(%rsp)
-	movq	32(%rsp), %rdi
+	movq	%rbx, 8(%rsp)
+	movq	24(%rsp), %rdi
 	movq	-8(%rdi), %rax
 	shrq	$9, %rax
 	cmpq	%rbx, %rax
@@ -761,25 +846,21 @@ _camlCube__printCube_1034:
 	movq	-4(%rdi, %rbx, 4), %rax
 	call	_camlCube__color2string_1032
 .L1950:
-	movq	%rax, 8(%rsp)
-	movq	_camlCube__30@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
+	movq	8(%rsp), %rbx
+	call	_camlCube__p_1036
 .L1951:
-	movq	%rax, %rdi
-	movq	8(%rsp), %rax
-	movq	16(%rsp), %rbx
-	call	_caml_apply2
-.L1952:
-	movq	24(%rsp), %rax
+	movq	16(%rsp), %rax
 	movq	%rax, %rbx
 	addq	$2, %rax
-	movq	%rax, 24(%rsp)
+	movq	%rax, 16(%rsp)
 	cmpq	$5, %rbx
 	jne	.L1946
 .L1945:
-	movq	_camlCube__31@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
-.L1953:
+	movq	_camlCube__38@GOTPCREL(%rip), %rbx
+	movq	_camlPervasives@GOTPCREL(%rip), %rax
+	movq	184(%rax), %rax
+	call	_camlPrintf__fprintf_1025
+.L1952:
 	movq	0(%rsp), %rbx
 	movq	%rbx, %rax
 	addq	$2, %rbx
@@ -790,53 +871,75 @@ _camlCube__printCube_1034:
 	movq	$1, %rax
 	cmpq	$5, %rax
 	jg	.L1933
-	movq	%rax, 24(%rsp)
+	movq	%rax, 16(%rsp)
 .L1934:
 	movq	$1, %rax
-	movq	%rax, 16(%rsp)
+	movq	%rax, 8(%rsp)
 	cmpq	$5, %rax
 	jg	.L1941
 .L1942:
-	movq	24(%rsp), %rbx
+	movq	16(%rsp), %rbx
 	sarq	$1, %rbx
 	imulq	$6, %rbx
 	leaq	18(%rbx, %rax), %rax
-	movq	%rax, 8(%rsp)
-	movq	32(%rsp), %rdi
+	movq	%rax, 0(%rsp)
+	movq	24(%rsp), %rdi
 	movq	-8(%rdi), %rbx
 	shrq	$9, %rbx
 	cmpq	%rax, %rbx
 	jbe	.L1949
 	movq	-4(%rdi, %rax, 4), %rax
 	call	_camlCube__color2string_1032
+.L1953:
+	movq	0(%rsp), %rbx
+	call	_camlCube__p_1036
 .L1954:
-	movq	%rax, 0(%rsp)
-	movq	_camlCube__30@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
-.L1955:
-	movq	%rax, %rdi
-	movq	0(%rsp), %rax
-	movq	8(%rsp), %rbx
-	call	_caml_apply2
-.L1956:
-	movq	16(%rsp), %rax
+	movq	8(%rsp), %rax
 	movq	%rax, %rbx
 	addq	$2, %rax
-	movq	%rax, 16(%rsp)
+	movq	%rax, 8(%rsp)
 	cmpq	$5, %rbx
 	jne	.L1942
 .L1941:
 	movq	$1, %rax
-	movq	%rax, 16(%rsp)
+	movq	%rax, 8(%rsp)
 	cmpq	$5, %rax
 	jg	.L1939
 .L1940:
-	movq	24(%rsp), %rbx
+	movq	16(%rsp), %rbx
 	sarq	$1, %rbx
 	imulq	$6, %rbx
 	leaq	36(%rbx, %rax), %rax
+	movq	%rax, 0(%rsp)
+	movq	24(%rsp), %rdi
+	movq	-8(%rdi), %rbx
+	shrq	$9, %rbx
+	cmpq	%rax, %rbx
+	jbe	.L1949
+	movq	-4(%rdi, %rax, 4), %rax
+	call	_camlCube__color2string_1032
+.L1955:
+	movq	0(%rsp), %rbx
+	call	_camlCube__p_1036
+.L1956:
+	movq	8(%rsp), %rax
+	movq	%rax, %rbx
+	addq	$2, %rax
 	movq	%rax, 8(%rsp)
-	movq	32(%rsp), %rdi
+	cmpq	$5, %rbx
+	jne	.L1940
+.L1939:
+	movq	$1, %rax
+	movq	%rax, 8(%rsp)
+	cmpq	$5, %rax
+	jg	.L1937
+.L1938:
+	movq	16(%rsp), %rbx
+	sarq	$1, %rbx
+	imulq	$6, %rbx
+	leaq	54(%rbx, %rax), %rax
+	movq	%rax, 0(%rsp)
+	movq	24(%rsp), %rdi
 	movq	-8(%rdi), %rbx
 	shrq	$9, %rbx
 	cmpq	%rax, %rbx
@@ -844,97 +947,53 @@ _camlCube__printCube_1034:
 	movq	-4(%rdi, %rax, 4), %rax
 	call	_camlCube__color2string_1032
 .L1957:
-	movq	%rax, 0(%rsp)
-	movq	_camlCube__30@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
+	movq	0(%rsp), %rbx
+	call	_camlCube__p_1036
 .L1958:
-	movq	%rax, %rdi
-	movq	0(%rsp), %rax
-	movq	8(%rsp), %rbx
-	call	_caml_apply2
-.L1959:
-	movq	16(%rsp), %rax
+	movq	8(%rsp), %rax
 	movq	%rax, %rbx
 	addq	$2, %rax
-	movq	%rax, 16(%rsp)
-	cmpq	$5, %rbx
-	jne	.L1940
-.L1939:
-	movq	$1, %rax
-	movq	%rax, 16(%rsp)
-	cmpq	$5, %rax
-	jg	.L1937
-.L1938:
-	movq	24(%rsp), %rbx
-	sarq	$1, %rbx
-	imulq	$6, %rbx
-	leaq	54(%rbx, %rax), %rax
 	movq	%rax, 8(%rsp)
-	movq	32(%rsp), %rdi
-	movq	-8(%rdi), %rbx
-	shrq	$9, %rbx
-	cmpq	%rax, %rbx
-	jbe	.L1949
-	movq	-4(%rdi, %rax, 4), %rax
-	call	_camlCube__color2string_1032
-.L1960:
-	movq	%rax, 0(%rsp)
-	movq	_camlCube__30@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
-.L1961:
-	movq	%rax, %rdi
-	movq	0(%rsp), %rax
-	movq	8(%rsp), %rbx
-	call	_caml_apply2
-.L1962:
-	movq	16(%rsp), %rax
-	movq	%rax, %rbx
-	addq	$2, %rax
-	movq	%rax, 16(%rsp)
 	cmpq	$5, %rbx
 	jne	.L1938
 .L1937:
 	movq	$1, %rax
-	movq	%rax, 16(%rsp)
+	movq	%rax, 8(%rsp)
 	cmpq	$5, %rax
 	jg	.L1935
 .L1936:
-	movq	24(%rsp), %rbx
+	movq	16(%rsp), %rbx
 	sarq	$1, %rbx
 	imulq	$6, %rbx
 	leaq	72(%rbx, %rax), %rax
-	movq	%rax, 8(%rsp)
-	movq	32(%rsp), %rdi
+	movq	%rax, 0(%rsp)
+	movq	24(%rsp), %rdi
 	movq	-8(%rdi), %rbx
 	shrq	$9, %rbx
 	cmpq	%rax, %rbx
 	jbe	.L1949
 	movq	-4(%rdi, %rax, 4), %rax
 	call	_camlCube__color2string_1032
-.L1963:
-	movq	%rax, 0(%rsp)
-	movq	_camlCube__30@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
-.L1964:
-	movq	%rax, %rdi
-	movq	0(%rsp), %rax
-	movq	8(%rsp), %rbx
-	call	_caml_apply2
-.L1965:
-	movq	16(%rsp), %rax
+.L1959:
+	movq	0(%rsp), %rbx
+	call	_camlCube__p_1036
+.L1960:
+	movq	8(%rsp), %rax
 	movq	%rax, %rbx
 	addq	$2, %rax
-	movq	%rax, 16(%rsp)
+	movq	%rax, 8(%rsp)
 	cmpq	$5, %rbx
 	jne	.L1936
 .L1935:
-	movq	_camlCube__31@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
-.L1966:
-	movq	24(%rsp), %rbx
+	movq	_camlCube__38@GOTPCREL(%rip), %rbx
+	movq	_camlPervasives@GOTPCREL(%rip), %rax
+	movq	184(%rax), %rax
+	call	_camlPrintf__fprintf_1025
+.L1961:
+	movq	16(%rsp), %rbx
 	movq	%rbx, %rax
 	addq	$2, %rbx
-	movq	%rbx, 24(%rsp)
+	movq	%rbx, 16(%rsp)
 	cmpq	$5, %rax
 	jne	.L1934
 .L1933:
@@ -943,11 +1002,13 @@ _camlCube__printCube_1034:
 	jg	.L1929
 	movq	%rax, 0(%rsp)
 .L1930:
-	movq	_camlCube__33@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
-.L1967:
+	movq	_camlCube__46@GOTPCREL(%rip), %rbx
+	movq	_camlPervasives@GOTPCREL(%rip), %rax
+	movq	184(%rax), %rax
+	call	_camlPrintf__fprintf_1025
+.L1962:
 	movq	$1, %rax
-	movq	%rax, 24(%rsp)
+	movq	%rax, 16(%rsp)
 	cmpq	$5, %rax
 	jg	.L1931
 .L1932:
@@ -955,34 +1016,30 @@ _camlCube__printCube_1034:
 	sarq	$1, %rbx
 	imulq	$6, %rbx
 	leaq	90(%rbx, %rax), %rax
-	movq	%rax, 16(%rsp)
-	movq	32(%rsp), %rdi
+	movq	%rax, 8(%rsp)
+	movq	24(%rsp), %rdi
 	movq	-8(%rdi), %rbx
 	shrq	$9, %rbx
 	cmpq	%rax, %rbx
 	jbe	.L1949
 	movq	-4(%rdi, %rax, 4), %rax
 	call	_camlCube__color2string_1032
-.L1968:
-	movq	%rax, 8(%rsp)
-	movq	_camlCube__30@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
-.L1969:
-	movq	%rax, %rdi
-	movq	8(%rsp), %rax
-	movq	16(%rsp), %rbx
-	call	_caml_apply2
-.L1970:
-	movq	24(%rsp), %rax
+.L1963:
+	movq	8(%rsp), %rbx
+	call	_camlCube__p_1036
+.L1964:
+	movq	16(%rsp), %rax
 	movq	%rax, %rbx
 	addq	$2, %rax
-	movq	%rax, 24(%rsp)
+	movq	%rax, 16(%rsp)
 	cmpq	$5, %rbx
 	jne	.L1932
 .L1931:
-	movq	_camlCube__31@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
-.L1971:
+	movq	_camlCube__38@GOTPCREL(%rip), %rbx
+	movq	_camlPervasives@GOTPCREL(%rip), %rax
+	movq	184(%rax), %rax
+	call	_camlPrintf__fprintf_1025
+.L1965:
 	movq	0(%rsp), %rbx
 	movq	%rbx, %rax
 	addq	$2, %rbx
@@ -990,298 +1047,277 @@ _camlCube__printCube_1034:
 	cmpq	$5, %rax
 	jne	.L1930
 .L1929:
-	movq	_camlCube__31@GOTPCREL(%rip), %rax
+	movq	_camlCube__38@GOTPCREL(%rip), %rbx
+	movq	_camlPervasives@GOTPCREL(%rip), %rax
+	movq	184(%rax), %rax
 	addq	$40, %rsp
 	.cfi_adjust_cfa_offset	-40
-	jmp	_camlPrintf__printf_1369
+	jmp	_camlPrintf__fprintf_1025
 	.cfi_adjust_cfa_offset	40
 .L1949:	call	_caml_ml_array_bound_error
 	.cfi_endproc
 	.text
 	.align	4
-	.globl	_camlCube__printCubeFlat_1076
-_camlCube__printCubeFlat_1076:
+	.globl	_camlCube__printCubeFlat_1055
+_camlCube__printCubeFlat_1055:
 	.cfi_startproc
 	subq	$24, %rsp
 	.cfi_adjust_cfa_offset	24
-.L1974:
+.L1968:
 	movq	$1, %rbx
 	cmpq	$107, %rbx
-	jg	.L1972
+	jg	.L1966
 	movq	%rbx, 16(%rsp)
 	movq	%rax, 0(%rsp)
-.L1973:
-	movq	_camlCube__34@GOTPCREL(%rip), %rax
-	call	_camlPrintf__printf_1369
-.L1975:
+.L1967:
+	movq	_camlCube__49@GOTPCREL(%rip), %rbx
+	movq	_camlPervasives@GOTPCREL(%rip), %rax
+	movq	184(%rax), %rax
+	call	_camlPrintf__fprintf_1025
+.L1969:
 	movq	%rax, 8(%rsp)
 	movq	0(%rsp), %rbx
 	movq	-8(%rbx), %rax
 	shrq	$9, %rax
 	movq	16(%rsp), %rdi
 	cmpq	%rdi, %rax
-	jbe	.L1976
+	jbe	.L1970
 	movq	-4(%rbx, %rdi, 4), %rax
 	call	_camlCube__color2string_1032
-.L1977:
+.L1971:
 	movq	8(%rsp), %rbx
 	movq	(%rbx), %rdi
 	call	*%rdi
-.L1978:
+.L1972:
 	movq	16(%rsp), %rbx
 	movq	%rbx, %rax
 	addq	$2, %rbx
 	movq	%rbx, 16(%rsp)
 	cmpq	$107, %rax
-	jne	.L1973
-.L1972:
+	jne	.L1967
+.L1966:
 	movq	$1, %rax
 	addq	$24, %rsp
 	.cfi_adjust_cfa_offset	-24
 	ret
 	.cfi_adjust_cfa_offset	24
-.L1976:	call	_caml_ml_array_bound_error
+.L1970:	call	_caml_ml_array_bound_error
 	.cfi_endproc
 	.text
 	.align	4
-	.globl	_camlCube__moves_1079
-_camlCube__moves_1079:
+	.globl	_camlCube__moves_1058
+_camlCube__moves_1058:
 	.cfi_startproc
 	subq	$8, %rsp
 	.cfi_adjust_cfa_offset	8
-.L1979:
+.L1973:
 	movq	%rax, %rdi
-.L1980:	subq	$904, %r15
+.L1974:	subq	$904, %r15
 	movq	_caml_young_limit@GOTPCREL(%rip), %rax
 	cmpq	(%rax), %r15
-	jb	.L1981
+	jb	.L1975
 	leaq	8(%r15), %rax
 	movq	$2048, -8(%rax)
 	movq	$11, (%rax)
 	movq	_camlTurns@GOTPCREL(%rip), %rbx
-	movq	160(%rbx), %rbx
-	movq	%rbx, 8(%rax)
-	leaq	24(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	%rax, (%rbx)
-	movq	$1, 8(%rbx)
-	leaq	48(%rax), %rsi
+	movq	160(%rbx), %rsi
+	movq	%rsi, 8(%rax)
+	leaq	24(%rax), %rsi
+	movq	$2048, -8(%rsi)
+	movq	%rax, (%rsi)
+	movq	$1, 8(%rsi)
+	leaq	48(%rax), %rdx
+	movq	$2048, -8(%rdx)
+	movq	$11, (%rdx)
+	movq	152(%rbx), %rcx
+	movq	%rcx, 8(%rdx)
+	leaq	72(%rax), %rcx
+	movq	$2048, -8(%rcx)
+	movq	%rdx, (%rcx)
+	movq	%rsi, 8(%rcx)
+	leaq	96(%rax), %rsi
 	movq	$2048, -8(%rsi)
 	movq	$11, (%rsi)
-	movq	_camlTurns@GOTPCREL(%rip), %rdx
-	movq	152(%rdx), %rdx
+	movq	144(%rbx), %rdx
 	movq	%rdx, 8(%rsi)
-	leaq	72(%rax), %rdx
+	leaq	120(%rax), %rdx
 	movq	$2048, -8(%rdx)
 	movq	%rsi, (%rdx)
-	movq	%rbx, 8(%rdx)
-	leaq	96(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$11, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rsi
-	movq	144(%rsi), %rsi
-	movq	%rsi, 8(%rbx)
-	leaq	120(%rax), %rsi
+	movq	%rcx, 8(%rdx)
+	leaq	144(%rax), %rsi
 	movq	$2048, -8(%rsi)
-	movq	%rbx, (%rsi)
-	movq	%rdx, 8(%rsi)
-	leaq	144(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$9, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rdx
-	movq	136(%rdx), %rdx
-	movq	%rdx, 8(%rbx)
-	leaq	168(%rax), %rdx
-	movq	$2048, -8(%rdx)
-	movq	%rbx, (%rdx)
-	movq	%rsi, 8(%rdx)
-	leaq	192(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$9, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rsi
-	movq	128(%rsi), %rsi
-	movq	%rsi, 8(%rbx)
-	leaq	216(%rax), %rsi
+	movq	$9, (%rsi)
+	movq	136(%rbx), %rcx
+	movq	%rcx, 8(%rsi)
+	leaq	168(%rax), %rcx
+	movq	$2048, -8(%rcx)
+	movq	%rsi, (%rcx)
+	movq	%rdx, 8(%rcx)
+	leaq	192(%rax), %rsi
 	movq	$2048, -8(%rsi)
-	movq	%rbx, (%rsi)
+	movq	$9, (%rsi)
+	movq	128(%rbx), %rdx
 	movq	%rdx, 8(%rsi)
-	leaq	240(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$9, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rdx
-	movq	120(%rdx), %rdx
-	movq	%rdx, 8(%rbx)
-	leaq	264(%rax), %rdx
+	leaq	216(%rax), %rdx
 	movq	$2048, -8(%rdx)
-	movq	%rbx, (%rdx)
-	movq	%rsi, 8(%rdx)
-	leaq	288(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$7, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rsi
-	movq	112(%rsi), %rsi
-	movq	%rsi, 8(%rbx)
-	leaq	312(%rax), %rsi
+	movq	%rsi, (%rdx)
+	movq	%rcx, 8(%rdx)
+	leaq	240(%rax), %rsi
 	movq	$2048, -8(%rsi)
-	movq	%rbx, (%rsi)
-	movq	%rdx, 8(%rsi)
-	leaq	336(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$7, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rdx
-	movq	104(%rdx), %rdx
-	movq	%rdx, 8(%rbx)
-	leaq	360(%rax), %rdx
-	movq	$2048, -8(%rdx)
-	movq	%rbx, (%rdx)
-	movq	%rsi, 8(%rdx)
-	leaq	384(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$7, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rsi
-	movq	96(%rsi), %rsi
-	movq	%rsi, 8(%rbx)
-	leaq	408(%rax), %rsi
+	movq	$9, (%rsi)
+	movq	120(%rbx), %rcx
+	movq	%rcx, 8(%rsi)
+	leaq	264(%rax), %rcx
+	movq	$2048, -8(%rcx)
+	movq	%rsi, (%rcx)
+	movq	%rdx, 8(%rcx)
+	leaq	288(%rax), %rsi
 	movq	$2048, -8(%rsi)
-	movq	%rbx, (%rsi)
+	movq	$7, (%rsi)
+	movq	112(%rbx), %rdx
 	movq	%rdx, 8(%rsi)
-	leaq	432(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$5, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rdx
-	movq	88(%rdx), %rdx
-	movq	%rdx, 8(%rbx)
-	leaq	456(%rax), %rdx
+	leaq	312(%rax), %rdx
 	movq	$2048, -8(%rdx)
-	movq	%rbx, (%rdx)
-	movq	%rsi, 8(%rdx)
-	leaq	480(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$5, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rsi
-	movq	80(%rsi), %rsi
-	movq	%rsi, 8(%rbx)
-	leaq	504(%rax), %rsi
+	movq	%rsi, (%rdx)
+	movq	%rcx, 8(%rdx)
+	leaq	336(%rax), %rsi
 	movq	$2048, -8(%rsi)
-	movq	%rbx, (%rsi)
-	movq	%rdx, 8(%rsi)
-	leaq	528(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$5, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rdx
-	movq	72(%rdx), %rdx
-	movq	%rdx, 8(%rbx)
-	leaq	552(%rax), %rdx
-	movq	$2048, -8(%rdx)
-	movq	%rbx, (%rdx)
-	movq	%rsi, 8(%rdx)
-	leaq	576(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$3, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rsi
-	movq	64(%rsi), %rsi
-	movq	%rsi, 8(%rbx)
-	leaq	600(%rax), %rsi
+	movq	$7, (%rsi)
+	movq	104(%rbx), %rcx
+	movq	%rcx, 8(%rsi)
+	leaq	360(%rax), %rcx
+	movq	$2048, -8(%rcx)
+	movq	%rsi, (%rcx)
+	movq	%rdx, 8(%rcx)
+	leaq	384(%rax), %rsi
 	movq	$2048, -8(%rsi)
-	movq	%rbx, (%rsi)
+	movq	$7, (%rsi)
+	movq	96(%rbx), %rdx
 	movq	%rdx, 8(%rsi)
-	leaq	624(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$3, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rdx
-	movq	56(%rdx), %rdx
-	movq	%rdx, 8(%rbx)
-	leaq	648(%rax), %rdx
+	leaq	408(%rax), %rdx
 	movq	$2048, -8(%rdx)
-	movq	%rbx, (%rdx)
-	movq	%rsi, 8(%rdx)
-	leaq	672(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$3, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rsi
-	movq	48(%rsi), %rsi
-	movq	%rsi, 8(%rbx)
-	leaq	696(%rax), %rsi
+	movq	%rsi, (%rdx)
+	movq	%rcx, 8(%rdx)
+	leaq	432(%rax), %rsi
 	movq	$2048, -8(%rsi)
-	movq	%rbx, (%rsi)
-	movq	%rdx, 8(%rsi)
-	leaq	720(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$1, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rdx
-	movq	40(%rdx), %rdx
-	movq	%rdx, 8(%rbx)
-	leaq	744(%rax), %rdx
-	movq	$2048, -8(%rdx)
-	movq	%rbx, (%rdx)
-	movq	%rsi, 8(%rdx)
-	leaq	768(%rax), %rbx
-	movq	$2048, -8(%rbx)
-	movq	$1, (%rbx)
-	movq	_camlTurns@GOTPCREL(%rip), %rsi
-	movq	32(%rsi), %rsi
-	movq	%rsi, 8(%rbx)
-	leaq	792(%rax), %rsi
+	movq	$5, (%rsi)
+	movq	88(%rbx), %rcx
+	movq	%rcx, 8(%rsi)
+	leaq	456(%rax), %rcx
+	movq	$2048, -8(%rcx)
+	movq	%rsi, (%rcx)
+	movq	%rdx, 8(%rcx)
+	leaq	480(%rax), %rsi
 	movq	$2048, -8(%rsi)
-	movq	%rbx, (%rsi)
+	movq	$5, (%rsi)
+	movq	80(%rbx), %rdx
 	movq	%rdx, 8(%rsi)
-	leaq	816(%rax), %rdx
+	leaq	504(%rax), %rdx
 	movq	$2048, -8(%rdx)
-	movq	$1, (%rdx)
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
+	movq	%rsi, (%rdx)
+	movq	%rcx, 8(%rdx)
+	leaq	528(%rax), %rsi
+	movq	$2048, -8(%rsi)
+	movq	$5, (%rsi)
+	movq	72(%rbx), %rcx
+	movq	%rcx, 8(%rsi)
+	leaq	552(%rax), %rcx
+	movq	$2048, -8(%rcx)
+	movq	%rsi, (%rcx)
+	movq	%rdx, 8(%rcx)
+	leaq	576(%rax), %rsi
+	movq	$2048, -8(%rsi)
+	movq	$3, (%rsi)
+	movq	64(%rbx), %rdx
+	movq	%rdx, 8(%rsi)
+	leaq	600(%rax), %rdx
+	movq	$2048, -8(%rdx)
+	movq	%rsi, (%rdx)
+	movq	%rcx, 8(%rdx)
+	leaq	624(%rax), %rsi
+	movq	$2048, -8(%rsi)
+	movq	$3, (%rsi)
+	movq	56(%rbx), %rcx
+	movq	%rcx, 8(%rsi)
+	leaq	648(%rax), %rcx
+	movq	$2048, -8(%rcx)
+	movq	%rsi, (%rcx)
+	movq	%rdx, 8(%rcx)
+	leaq	672(%rax), %rsi
+	movq	$2048, -8(%rsi)
+	movq	$3, (%rsi)
+	movq	48(%rbx), %rdx
+	movq	%rdx, 8(%rsi)
+	leaq	696(%rax), %rdx
+	movq	$2048, -8(%rdx)
+	movq	%rsi, (%rdx)
+	movq	%rcx, 8(%rdx)
+	leaq	720(%rax), %rsi
+	movq	$2048, -8(%rsi)
+	movq	$1, (%rsi)
+	movq	40(%rbx), %rcx
+	movq	%rcx, 8(%rsi)
+	leaq	744(%rax), %rcx
+	movq	$2048, -8(%rcx)
+	movq	%rsi, (%rcx)
+	movq	%rdx, 8(%rcx)
+	leaq	768(%rax), %rsi
+	movq	$2048, -8(%rsi)
+	movq	$1, (%rsi)
+	movq	32(%rbx), %rdx
+	movq	%rdx, 8(%rsi)
+	leaq	792(%rax), %rdx
+	movq	$2048, -8(%rdx)
+	movq	%rsi, (%rdx)
+	movq	%rcx, 8(%rdx)
+	leaq	816(%rax), %rsi
+	movq	$2048, -8(%rsi)
+	movq	$1, (%rsi)
 	movq	24(%rbx), %rbx
-	movq	%rbx, 8(%rdx)
+	movq	%rbx, 8(%rsi)
 	leaq	840(%rax), %rbx
 	movq	$2048, -8(%rbx)
-	movq	%rdx, (%rbx)
-	movq	%rsi, 8(%rbx)
+	movq	%rsi, (%rbx)
+	movq	%rdx, 8(%rbx)
 	addq	$864, %rax
 	movq	$4343, -8(%rax)
 	movq	_caml_tuplify2@GOTPCREL(%rip), %rsi
 	movq	%rsi, (%rax)
 	movq	$-3, 8(%rax)
-	movq	_camlCube__fun_1121@GOTPCREL(%rip), %rsi
+	movq	_camlCube__fun_1096@GOTPCREL(%rip), %rsi
 	movq	%rsi, 16(%rax)
 	movq	%rdi, 24(%rax)
 	addq	$8, %rsp
 	.cfi_adjust_cfa_offset	-8
 	jmp	_camlList__map_1040
 	.cfi_adjust_cfa_offset	8
-.L1981:	call	_caml_call_gc
-.L1982:	jmp	.L1980
+.L1975:	call	_caml_call_gc
+.L1976:	jmp	.L1974
 	.cfi_endproc
 	.text
 	.align	4
 	.globl	_camlCube__entry
 _camlCube__entry:
 	.cfi_startproc
-.L1983:
-	movq	_camlCube__43@GOTPCREL(%rip), %rax
+.L1977:
+	movq	_camlCube__58@GOTPCREL(%rip), %rax
 	movq	_camlCube@GOTPCREL(%rip), %rbx
 	movq	%rax, (%rbx)
-	movq	_camlCube__42@GOTPCREL(%rip), %rax
-	movq	_camlCube@GOTPCREL(%rip), %rbx
+	movq	_camlCube__57@GOTPCREL(%rip), %rax
 	movq	%rax, 8(%rbx)
-	movq	_camlCube__41@GOTPCREL(%rip), %rax
-	movq	_camlCube@GOTPCREL(%rip), %rbx
+	movq	_camlCube__56@GOTPCREL(%rip), %rax
 	movq	%rax, 16(%rbx)
-	movq	_camlCube__40@GOTPCREL(%rip), %rax
-	movq	_camlCube@GOTPCREL(%rip), %rbx
+	movq	_camlCube__55@GOTPCREL(%rip), %rax
 	movq	%rax, 24(%rbx)
-	movq	_camlCube__39@GOTPCREL(%rip), %rax
-	movq	_camlCube@GOTPCREL(%rip), %rbx
+	movq	_camlCube__54@GOTPCREL(%rip), %rax
 	movq	%rax, 32(%rbx)
-	movq	_camlCube__38@GOTPCREL(%rip), %rax
-	movq	_camlCube@GOTPCREL(%rip), %rbx
+	movq	_camlCube__53@GOTPCREL(%rip), %rax
 	movq	%rax, 40(%rbx)
-	movq	_camlCube__37@GOTPCREL(%rip), %rax
-	movq	_camlCube@GOTPCREL(%rip), %rbx
+	movq	_camlCube__52@GOTPCREL(%rip), %rax
 	movq	%rax, 48(%rbx)
-	movq	_camlCube__36@GOTPCREL(%rip), %rax
-	movq	_camlCube@GOTPCREL(%rip), %rbx
+	movq	_camlCube__51@GOTPCREL(%rip), %rax
 	movq	%rax, 56(%rbx)
-	movq	_camlCube__35@GOTPCREL(%rip), %rax
-	movq	_camlCube@GOTPCREL(%rip), %rbx
+	movq	_camlCube__50@GOTPCREL(%rip), %rax
 	movq	%rax, 64(%rbx)
 	movq	$1, %rax
 	ret
@@ -1297,149 +1333,131 @@ _camlCube__data_end:
 	.long	0
 	.globl	_camlCube__frametable
 _camlCube__frametable:
-	.quad	43
-	.quad	.L1982
+	.quad	37
+	.quad	.L1976
 	.word	16
 	.word	1
 	.word	5
 	.align	3
-	.quad	.L1978
-	.word	32
-	.word	1
-	.word	0
-	.align	3
-	.quad	.L1977
-	.word	32
-	.word	2
-	.word	0
-	.word	8
-	.align	3
-	.quad	.L1975
+	.quad	.L1972
 	.word	32
 	.word	1
 	.word	0
 	.align	3
 	.quad	.L1971
-	.word	48
-	.word	1
 	.word	32
-	.align	3
-	.quad	.L1970
-	.word	48
-	.word	1
-	.word	32
-	.align	3
-	.quad	.L1969
-	.word	48
-	.word	2
-	.word	8
-	.word	32
-	.align	3
-	.quad	.L1968
-	.word	48
-	.word	1
-	.word	32
-	.align	3
-	.quad	.L1967
-	.word	48
-	.word	1
-	.word	32
-	.align	3
-	.quad	.L1966
-	.word	48
-	.word	1
-	.word	32
-	.align	3
-	.quad	.L1965
-	.word	48
-	.word	1
-	.word	32
-	.align	3
-	.quad	.L1964
-	.word	48
 	.word	2
 	.word	0
-	.word	32
+	.word	8
+	.align	3
+	.quad	.L1969
+	.word	33
+	.word	1
+	.word	0
+	.align	3
+	.set	L$set$1, (.L1978 - .) + 0x8c000000
+	.long L$set$1
+	.long	0x1b110
+	.quad	.L1965
+	.word	49
+	.word	1
+	.word	24
+	.align	3
+	.set	L$set$2, (.L1978 - .) + 0x8c000000
+	.long L$set$2
+	.long	0x1b110
+	.quad	.L1964
+	.word	48
+	.word	1
+	.word	24
 	.align	3
 	.quad	.L1963
 	.word	48
 	.word	1
-	.word	32
+	.word	24
 	.align	3
 	.quad	.L1962
-	.word	48
+	.word	49
 	.word	1
-	.word	32
+	.word	24
 	.align	3
+	.set	L$set$3, (.L1978 - .) + 0x8c000000
+	.long L$set$3
+	.long	0x1b110
 	.quad	.L1961
-	.word	48
-	.word	2
-	.word	0
-	.word	32
+	.word	49
+	.word	1
+	.word	24
 	.align	3
+	.set	L$set$4, (.L1978 - .) + 0x8c000000
+	.long L$set$4
+	.long	0x1b110
 	.quad	.L1960
 	.word	48
 	.word	1
-	.word	32
+	.word	24
 	.align	3
 	.quad	.L1959
 	.word	48
 	.word	1
-	.word	32
+	.word	24
 	.align	3
 	.quad	.L1958
 	.word	48
-	.word	2
-	.word	0
-	.word	32
+	.word	1
+	.word	24
 	.align	3
 	.quad	.L1957
 	.word	48
 	.word	1
-	.word	32
+	.word	24
 	.align	3
 	.quad	.L1956
 	.word	48
 	.word	1
-	.word	32
+	.word	24
 	.align	3
 	.quad	.L1955
 	.word	48
-	.word	2
-	.word	0
-	.word	32
+	.word	1
+	.word	24
 	.align	3
 	.quad	.L1954
 	.word	48
 	.word	1
-	.word	32
+	.word	24
 	.align	3
 	.quad	.L1953
 	.word	48
 	.word	1
-	.word	32
+	.word	24
 	.align	3
 	.quad	.L1952
-	.word	48
+	.word	49
 	.word	1
-	.word	32
+	.word	24
 	.align	3
+	.set	L$set$5, (.L1978 - .) + 0x8c000000
+	.long L$set$5
+	.long	0x1b110
 	.quad	.L1951
 	.word	48
-	.word	2
-	.word	32
-	.word	8
+	.word	1
+	.word	24
 	.align	3
 	.quad	.L1950
 	.word	48
 	.word	1
-	.word	32
+	.word	24
 	.align	3
 	.quad	.L1948
-	.word	48
+	.word	49
 	.word	1
-	.word	32
+	.word	24
 	.align	3
+	.set	L$set$6, (.L1978 - .) + 0x8c000000
+	.long L$set$6
+	.long	0x1b110
 	.quad	.L1919
 	.word	16
 	.word	2
@@ -1487,11 +1505,14 @@ _camlCube__frametable:
 	.word	0
 	.align	3
 	.quad	.L1881
-	.word	32
+	.word	33
 	.word	2
 	.word	0
 	.word	8
 	.align	3
+	.set	L$set$7, (.L1978 - .) + 0x8c000000
+	.long L$set$7
+	.long	0x1b110
 	.quad	.L1879
 	.word	32
 	.word	2
@@ -1539,4 +1560,7 @@ _camlCube__frametable:
 	.word	5
 	.word	3
 	.word	9
+	.align	3
+.L1978:
+	.asciz	"printf.ml"
 	.align	3

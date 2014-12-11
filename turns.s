@@ -11,112 +11,132 @@ _camlTurns__data_begin:
 _camlTurns__code_begin:
 	nop
 	.data
-	.quad	21504
+	.quad	22272
 	.globl	_camlTurns
 _camlTurns:
-	.space	168
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
+	.quad	1
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__1:
 	.quad	_camlTurns__b2_1099
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__2:
 	.quad	_camlTurns__b$27_1094
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__3:
 	.quad	_camlTurns__b_1089
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__4:
 	.quad	_camlTurns__f2_1084
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__5:
 	.quad	_camlTurns__f$27_1079
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__6:
 	.quad	_camlTurns__f_1074
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__7:
 	.quad	_camlTurns__r2_1069
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__8:
 	.quad	_camlTurns__r$27_1064
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__9:
 	.quad	_camlTurns__r_1059
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__10:
 	.quad	_camlTurns__l2_1054
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__11:
 	.quad	_camlTurns__l$27_1049
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__12:
 	.quad	_camlTurns__l_1044
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__13:
 	.quad	_camlTurns__d2_1039
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__14:
 	.quad	_camlTurns__d$27_1034
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__15:
 	.quad	_camlTurns__d_1029
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__16:
 	.quad	_camlTurns__u2_1024
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__17:
 	.quad	_camlTurns__u$27_1019
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__18:
 	.quad	_camlTurns__u_1014
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__19:
 	.quad	_camlTurns__oneEighty_1012
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__20:
 	.quad	_camlTurns__counterClockwise_1010
 	.quad	3
 	.data
-	.quad	2295
+	.quad	3063
 _camlTurns__21:
 	.quad	_camlTurns__clockwise_1008
 	.quad	3
@@ -127,21 +147,20 @@ _camlTurns__clockwise_1008:
 	.cfi_startproc
 .L101:
 	movq	%rax, %rbx
-	movq	$3, %rcx
+	sarq	$1, %rbx
+	movq	%rbx, %rdi
+	shrq	$63, %rdi
+	movabsq	$6148914691236517206, %rsi
 	movq	%rbx, %rax
-	sarq	$1, %rax
-	cqto
-	idivq	%rcx
-	movq	%rax, %rdi
-	movq	$3, %rcx
-	movq	%rbx, %rax
-	sarq	$1, %rax
-	cqto
-	idivq	%rcx
-	imulq	$6, %rdx
+	imulq	%rsi
+	addq	%rdi, %rdx
+	movq	%rdx, %rax
+	imulq	$3, %rax
+	subq	%rax, %rbx
+	imulq	$6, %rbx
 	movq	$13, %rax
-	subq	%rdx, %rax
-	leaq	(%rax, %rdi, 2), %rax
+	subq	%rbx, %rax
+	leaq	(%rax, %rdx, 2), %rax
 	ret
 	.cfi_endproc
 	.text
@@ -151,23 +170,21 @@ _camlTurns__counterClockwise_1010:
 	.cfi_startproc
 .L102:
 	movq	%rax, %rbx
-	movq	$3, %rcx
+	sarq	$1, %rbx
+	movq	%rbx, %rdi
+	shrq	$63, %rdi
+	movabsq	$6148914691236517206, %rsi
 	movq	%rbx, %rax
-	sarq	$1, %rax
-	cqto
-	idivq	%rcx
-	movq	%rdx, %rdi
-	imulq	$6, %rdi
-	movq	$3, %rcx
-	movq	%rbx, %rax
-	sarq	$1, %rax
-	cqto
-	idivq	%rcx
-	movq	%rax, %rbx
-	salq	$1, %rbx
+	imulq	%rsi
+	addq	%rdi, %rdx
+	movq	%rdx, %rax
+	imulq	$3, %rax
+	subq	%rax, %rbx
+	imulq	$6, %rbx
+	salq	$1, %rdx
 	movq	$5, %rax
-	subq	%rbx, %rax
-	addq	%rdi, %rax
+	subq	%rdx, %rax
+	addq	%rbx, %rax
 	ret
 	.cfi_endproc
 	.text
@@ -177,9 +194,8 @@ _camlTurns__oneEighty_1012:
 	.cfi_startproc
 .L103:
 	movq	%rax, %rbx
-	movq	$17, %rax
+	movq	$18, %rax
 	subq	%rbx, %rax
-	incq	%rax
 	ret
 	.cfi_endproc
 	.text
@@ -191,7 +207,7 @@ _camlTurns__u_1014:
 	.cfi_adjust_cfa_offset	24
 .L158:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L159:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -701,7 +717,7 @@ _camlTurns__u$27_1019:
 	.cfi_adjust_cfa_offset	24
 .L255:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L256:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -1211,16 +1227,15 @@ _camlTurns__u2_1024:
 	.cfi_adjust_cfa_offset	8
 .L352:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L353:
 	movq	%rax, %r12
 	movq	$1, %rbx
 	cmpq	$17, %rbx
 	jg	.L346
 .L347:
-	movq	$17, %rdi
+	movq	$18, %rdi
 	subq	%rbx, %rdi
-	incq	%rdi
 	movq	0(%rsp), %rdx
 	movq	-8(%rdx), %rax
 	movq	%rax, %rsi
@@ -1715,7 +1730,7 @@ _camlTurns__d_1029:
 	.cfi_adjust_cfa_offset	24
 .L448:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L449:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -2228,7 +2243,7 @@ _camlTurns__d$27_1034:
 	.cfi_adjust_cfa_offset	24
 .L545:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L546:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -2741,16 +2756,15 @@ _camlTurns__d2_1039:
 	.cfi_adjust_cfa_offset	8
 .L642:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L643:
 	movq	%rax, %r12
 	movq	$1, %rbx
 	cmpq	$17, %rbx
 	jg	.L636
 .L637:
-	movq	$17, %rdi
+	movq	$108, %rdi
 	subq	%rbx, %rdi
-	addq	$91, %rdi
 	movq	0(%rsp), %rdx
 	movq	-8(%rdx), %rax
 	movq	%rax, %rsi
@@ -3247,7 +3261,7 @@ _camlTurns__l_1044:
 	.cfi_adjust_cfa_offset	24
 .L738:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L739:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -3759,7 +3773,7 @@ _camlTurns__l$27_1049:
 	.cfi_adjust_cfa_offset	24
 .L835:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L836:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -4271,16 +4285,15 @@ _camlTurns__l2_1054:
 	.cfi_adjust_cfa_offset	8
 .L932:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L933:
 	movq	%rax, %r12
 	movq	$1, %rbx
 	cmpq	$17, %rbx
 	jg	.L926
 .L927:
-	movq	$17, %rdi
+	movq	$36, %rdi
 	subq	%rbx, %rdi
-	addq	$19, %rdi
 	movq	0(%rsp), %rdx
 	movq	-8(%rdx), %rax
 	movq	%rax, %rsi
@@ -4776,7 +4789,7 @@ _camlTurns__r_1059:
 	.cfi_adjust_cfa_offset	24
 .L1028:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L1029:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -5289,7 +5302,7 @@ _camlTurns__r$27_1064:
 	.cfi_adjust_cfa_offset	24
 .L1125:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L1126:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -5802,16 +5815,15 @@ _camlTurns__r2_1069:
 	.cfi_adjust_cfa_offset	8
 .L1222:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L1223:
 	movq	%rax, %r12
 	movq	$1, %rbx
 	cmpq	$17, %rbx
 	jg	.L1216
 .L1217:
-	movq	$17, %rdi
+	movq	$72, %rdi
 	subq	%rbx, %rdi
-	addq	$55, %rdi
 	movq	0(%rsp), %rdx
 	movq	-8(%rdx), %rax
 	movq	%rax, %rsi
@@ -6308,7 +6320,7 @@ _camlTurns__f_1074:
 	.cfi_adjust_cfa_offset	24
 .L1318:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L1319:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -6821,7 +6833,7 @@ _camlTurns__f$27_1079:
 	.cfi_adjust_cfa_offset	24
 .L1415:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L1416:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -7334,16 +7346,15 @@ _camlTurns__f2_1084:
 	.cfi_adjust_cfa_offset	8
 .L1512:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L1513:
 	movq	%rax, %r12
 	movq	$1, %rbx
 	cmpq	$17, %rbx
 	jg	.L1506
 .L1507:
-	movq	$17, %rdi
+	movq	$54, %rdi
 	subq	%rbx, %rdi
-	addq	$37, %rdi
 	movq	0(%rsp), %rdx
 	movq	-8(%rdx), %rax
 	movq	%rax, %rsi
@@ -7840,7 +7851,7 @@ _camlTurns__b_1089:
 	.cfi_adjust_cfa_offset	24
 .L1608:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L1609:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -8352,7 +8363,7 @@ _camlTurns__b$27_1094:
 	.cfi_adjust_cfa_offset	24
 .L1705:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L1706:
 	movq	%rax, %r12
 	movq	$1, %rbx
@@ -8864,16 +8875,15 @@ _camlTurns__b2_1099:
 	.cfi_adjust_cfa_offset	8
 .L1802:
 	movq	%rax, 0(%rsp)
-	call	_camlArray__copy_1031
+	call	_camlArray__copy_1032
 .L1803:
 	movq	%rax, %r12
 	movq	$1, %rbx
 	cmpq	$17, %rbx
 	jg	.L1796
 .L1797:
-	movq	$17, %rdi
+	movq	$90, %rdi
 	subq	%rbx, %rdi
-	addq	$73, %rdi
 	movq	0(%rsp), %rdx
 	movq	-8(%rdx), %rax
 	movq	%rax, %rsi
@@ -9370,64 +9380,44 @@ _camlTurns__entry:
 	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, (%rbx)
 	movq	_camlTurns__20@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 8(%rbx)
 	movq	_camlTurns__19@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 16(%rbx)
 	movq	_camlTurns__18@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 24(%rbx)
 	movq	_camlTurns__17@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 32(%rbx)
 	movq	_camlTurns__16@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 40(%rbx)
 	movq	_camlTurns__15@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 48(%rbx)
 	movq	_camlTurns__14@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 56(%rbx)
 	movq	_camlTurns__13@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 64(%rbx)
 	movq	_camlTurns__12@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 72(%rbx)
 	movq	_camlTurns__11@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 80(%rbx)
 	movq	_camlTurns__10@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 88(%rbx)
 	movq	_camlTurns__9@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 96(%rbx)
 	movq	_camlTurns__8@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 104(%rbx)
 	movq	_camlTurns__7@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 112(%rbx)
 	movq	_camlTurns__6@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 120(%rbx)
 	movq	_camlTurns__5@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 128(%rbx)
 	movq	_camlTurns__4@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 136(%rbx)
 	movq	_camlTurns__3@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 144(%rbx)
 	movq	_camlTurns__2@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 152(%rbx)
 	movq	_camlTurns__1@GOTPCREL(%rip), %rax
-	movq	_camlTurns@GOTPCREL(%rip), %rbx
 	movq	%rax, 160(%rbx)
 	movq	$1, %rax
 	ret

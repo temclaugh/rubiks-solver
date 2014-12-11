@@ -38,10 +38,10 @@ let color2char (color: color_t) : char =
   | Green -> 'G'
   | Blank -> '_'
 
-let cube2string cube =
-  let s = String.make 54 '_' in
+let cube2bytes cube =
+  let s = Bytes.create 54 in
   for i = 0 to 53 do
-    s.[i] <- (color2char cube.(i))
+    Bytes.set s i (color2char cube.(i))
   done;
   s
 

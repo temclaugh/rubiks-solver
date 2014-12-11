@@ -11,7 +11,7 @@ _camlTypes__data_begin:
 _camlTypes__code_begin:
 	nop
 	.data
-	.quad	0
+	.quad	768
 	.globl	_camlTypes
 _camlTypes:
 	.text

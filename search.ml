@@ -5,30 +5,37 @@ end)
 
 let numPermutations = 88179840
 
-let bfs (root: 'a) (expand: 'a -> ('b * 'a) list) (toString: 'a -> string) (f: 'a -> int -> unit) =
+let bfs (root: 'a) (expand: 'a -> ('b * 'a) list) (toBytes: 'a -> bytes) (f: 'a -> int -> unit) =
 
-  let c = ref 0 in
-  let q: ('b * 'a * int) Queue.t = Queue.create () in
-  Queue.add (Types.NoFace, root, 0) q;
-  let seen = ref (NodeSet.singleton (toString root)) in
+  let q: ('b * 'a) Queue.t = Queue.create () in
+  Queue.add (Types.NoFace, root) q;
+  let seen = ref (NodeSet.singleton (toBytes root)) in
 
+  let depth = ref 0 in
+  let counter = ref 0 in
   while not (Queue.is_empty q) do
-    incr c;
-    if ((!c mod 1000) = 0) then begin
-      prerr_float ((float_of_int !c) /. (float_of_int numPermutations));
-      prerr_newline ();
-    end;
-    let prevMove, node, depth = Queue.take q in
-    seen := NodeSet.add (toString node) !seen;
-    f node depth;
-    let nodeFilter (move, node') = 
-      if prevMove = move then
-        false
-      else
-        not (NodeSet.mem (toString node') !seen)
-    in
-    let children = List.filter nodeFilter (expand node) in
-    let _  = Printf.printf ">>>%d\n" (List.length children) in
-    List.iter (fun (move, node) -> Queue.add (move, node, depth + 1) q) children;
+    let len = Queue.length q in
+    for i = 1 to len do
+
+      let prevMove, node = Queue.take q in
+      seen := NodeSet.add (toBytes node) !seen;
+      f node !depth;
+
+      let nodeFilter (move, node') = 
+        if prevMove = move then
+          false
+        else
+          not (NodeSet.mem (toBytes node') !seen)
+      in
+      let children = List.filter nodeFilter (expand node) in
+      List.iter (fun x -> Queue.add x q) children;
+
+      incr counter;
+      if ((!counter mod 1000) = 0) then begin
+        prerr_float ((float_of_int !counter) /. (float_of_int numPermutations));
+        prerr_newline ();
+      end;
+    done;
+    incr depth;
   done
 
