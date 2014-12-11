@@ -30,6 +30,19 @@ let cornerCube () =
 
 let cube2string cube = ""
 
+let cubeCompare x y =
+  let rec iter i =
+    if i = 54 then
+      0
+    else if x.(i) < y.(i) then
+      -1
+    else if x.(i) > y.(i) then
+      1
+    else
+      iter (i + 1)
+  in
+  iter 0
+
 
 let color2string (color: color_t) : string =
   match color with

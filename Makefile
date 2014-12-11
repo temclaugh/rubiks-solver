@@ -1,3 +1,8 @@
+COMPILER=ocamlopt
+
 all:
-	ocamlc -o cube search.ml types.ml turns.ml cube.ml
-	ocamlc -o createTable search.ml types.ml turns.ml cube.ml createTable.ml
+	#ocamlopt -o cube types.ml turns.ml search.ml cube.ml
+	$(COMPILER) -S -o createTable types.ml turns.ml cube.ml search.ml createTable.ml
+
+clean:
+	-rm *.cmo *.cmi createTable 
