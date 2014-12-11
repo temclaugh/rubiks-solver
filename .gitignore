@@ -1,4 +1,5 @@
 cube
+createTable
 *.annot
 *.cmo
 *.cma

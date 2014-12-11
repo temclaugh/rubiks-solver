@@ -84,14 +84,16 @@ let printCube (cube: cube_t) =
   done;
   newLine ()
 
+let printCubeFlat cube =
+  for i = 0 to 53 do
+    Printf.printf "%s" (color2string cube.(i))
+  done
+
 let moves cube =
   let open Turns in
   let turns = [u;u';u2;d;d';d2;l;l';l2;r;r';r2;f;f';f2;b;b';b2] in
-  let v =
   List.map (fun f -> f cube) turns
-  in
-  let _ = List.iter printCube v in v
-
+(*
 let _ =
   let open Turns in
   let rec apply moves cube =
@@ -101,3 +103,4 @@ let _ =
   in
   Printf.printf "%b\n" (b2 (b2 (initCube ())) = initCube ())
 
+*)
