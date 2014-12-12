@@ -5,6 +5,13 @@
 
 #include "cube.h"
 
+cube *(*cube_expand[18])(cube *c) = {
+  turn_u, turn_u_, turn_u2, turn_d, turn_d_,
+  turn_d2, turn_l, turn_l_, turn_l2, turn_r,
+  turn_r_, turn_r2, turn_f, turn_f_, turn_f2,
+  turn_b, turn_b_, turn_b2,
+};
+
 cube *init_cube(void) {
   cube *c = malloc(sizeof(cube));
   color_t colors[] = {YELLOW, GREEN, ORANGE, BLUE, RED, WHITE};
@@ -18,6 +25,18 @@ cube *init_cube(void) {
 
 void delete_cube(cube *c) {
   free(c);
+}
+
+bool cube_solved(cube *c) {
+  for (int i = 0; i < 6; ++i) {
+    int face_color = c->stickers[9 * i + 4];
+    for (int j = 0; j < 9; ++j) {
+      if (c->stickers[9 * i + j] != face_color) {
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
 cube *copy_cube(cube *c) {
@@ -53,6 +72,22 @@ cube *corner_cube(void) {
   return c;
 }
 
+cube *extract_corners(cube *c) {
+  cube *c_ = copy_cube(c);
+  bool even = true;
+  for (int offset = 0; offset < 54; offset += 9) {
+    for (int i = 0; i < 9; ++i) {
+      int index = offset + i;
+      bool odd = !(index % 2 == 0);
+      if ((odd && even ) || !(odd || even)) {
+        c_->stickers[index] = BLANK;
+      }
+    }
+    even = !even;
+  }
+  return c_;
+}
+
 char color2char(color_t color) {
   switch (color) {
     case WHITE:
@@ -70,7 +105,52 @@ char color2char(color_t color) {
     case BLANK:
       return '_';
   }
-  return 's';
+  return '?';
+}
+
+char *move2string(move_t move) {
+  switch (move) {
+    case U: return "U";
+    case U_: return "U_";
+    case U2: return "U2";
+    case D: return "D";
+    case D_: return "D_";
+    case D2: return "D2";
+    case L: return "L";
+    case L_: return "L_";
+    case L2: return "L2";
+    case R: return "R";
+    case R_: return "R_";
+    case R2: return "R2";
+    case F: return "F";
+    case F_: return "F_";
+    case F2: return "F2";
+    case B: return "B";
+    case B_: return "B_";
+    case B2: return "B2";
+    case NO_MOVE: return "NO_MOVE";
+  }
+  return "?";
+}
+
+int char2color(char c) {
+  switch (c) {
+    case 'W':
+      return WHITE;
+    case 'Y':
+      return YELLOW;
+    case 'R':
+      return RED;
+    case 'O':
+      return ORANGE;
+    case 'B':
+      return BLUE;
+    case 'G':
+      return GREEN;
+    case '_':
+      return BLANK;
+  }
+  return -1;
 }
 
 void print_cube(cube* c) {
@@ -79,7 +159,7 @@ void print_cube(cube* c) {
     for (int j = 0; j < 3; ++j) {
       int index = 3 * i + j;
       char color = color2char(c->stickers[index]);
-      printf("%c%d ", color, is_center(index));
+      printf("%c%d ", color, index);
     }
     printf("\n");
   }
@@ -88,7 +168,7 @@ void print_cube(cube* c) {
       for (int j = 0; j < 3; ++j) {
         int index = offset + 3 * i + j;
         char color = color2char(c->stickers[index]);
-        printf("%c%d ", color, is_center(index));
+        printf("%c%d ", color, index);
       }
     }
     printf("\n");
@@ -98,7 +178,7 @@ void print_cube(cube* c) {
     for (int j = 0; j < 3; ++j) {
       int index = 45 + 3 * i + j;
       char color = color2char(c->stickers[index]);
-      printf("%c%d ", color, is_center(index));
+      printf("%c%d ", color, index);
     }
     printf("\n");
   }
@@ -190,6 +270,22 @@ cube *reconstruct(hash_cube_t *h) {
     bit_position += COLOR_ENTROPY;
   }
   return c;
+}
+
+hash_cube_t decompress(char *s) {
+  cube *c = corner_cube();
+  int index = 0;
+  for (int i = 0; i < NUM_STICKERS; ++i) {
+    if (c->stickers[i] == BLANK || is_center(i)) {
+      continue;
+    }
+    int sticker = char2color(s[index++]);
+    c->stickers[i] = sticker;
+  }
+  hash_cube_t h = hash_cube(c);
+  delete_cube(c);
+  return h;
+
 }
 
 int clockwise(int i) { return (i / 3) + (6 - 3 * (i % 3)); }

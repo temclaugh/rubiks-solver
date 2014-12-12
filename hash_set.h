@@ -25,6 +25,7 @@ typedef struct {
 hash_set_t new_hash_set(unsigned int (*hash)(HASH_DATA*), bool (*equals)(HASH_DATA*, HASH_DATA*));
 void insert(hash_set_t *tbl, HASH_DATA *val);
 bool contains(hash_set_t *tbl, HASH_DATA *val);
+int hash_lookup(hash_set_t *tbl, HASH_DATA *val);
 unsigned int size(hash_set_t *tbl);
 void free_hash_set(hash_set_t *tbl);
 

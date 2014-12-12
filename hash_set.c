@@ -32,8 +32,21 @@ bool contains(hash_set_t *tbl, HASH_DATA *val) {
     ptr = ptr->next;
   }
   return false;
-
 }
+
+int hash_lookup(hash_set_t *tbl, HASH_DATA *val) {
+  unsigned int index = tbl->hash(val) % TABLE_SIZE;
+  hash_set_node *ptr = tbl->buckets[index];
+  while (ptr) {
+    HASH_DATA val_ = ptr->val;
+    if (tbl->equals(val, &val_)) {
+      return val_.dist;
+    }
+    ptr = ptr->next;
+  }
+  return -1;
+}
+
 unsigned int size(hash_set_t *tbl) {
   return tbl->sz;
 }
