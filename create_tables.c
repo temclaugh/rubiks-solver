@@ -9,7 +9,7 @@
 #define TOTAL_NODES 88179840
 
 void generate_corners(cube *(*construct_cube)(void),
-                      cube *(*reconstruct)(hash_cube_t*),
+                      cube *(*reconstruct_corners)(hash_cube_t*),
                       hash_cube_t (*hash_cube)(cube*)
                       ) {
   hash_set_t hash_set = new_hash_set(hash_cube_index, hash_cube_equals);
@@ -33,7 +33,7 @@ void generate_corners(cube *(*construct_cube)(void),
       }
 
       hash_cube_t val = dequeue(&q);
-      cube *c1 = reconstruct(&val);
+      cube *c1 = reconstruct_corners(&val);
       print_cube_flat(c1);
       printf(",%d\n", depth);
 
@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
   }
   if (!strcmp(argv[1], "corners")) {
     fprintf(stderr, "you chose corners");
-    generate_corners(corner_cube, reconstruct, hash_cube);
+    generate_corners(cube_corners, reconstruct_corners, hash_cube);
   } else if (!strcmp(argv[1], "edge1")) {
     fprintf(stderr, "you chose edge1");
   } else if (!strcmp(argv[1], "edge2")) {

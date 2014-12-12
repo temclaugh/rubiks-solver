@@ -46,7 +46,7 @@ cube *init_cube(void);
 void delete_cube(cube *c);
 bool cube_solved(cube *c);
 bool cube_compare(cube *x, cube *y);
-cube *corner_cube(void);
+cube *cube_corners(void);
 cube *extract_corners(cube *c);
 char color2char(color_t color);
 char *move2string(move_t move);
@@ -57,7 +57,7 @@ bool is_center(int index);
 hash_cube_t hash_cube(cube *c);
 bool hash_cube_equals(hash_cube_t *h0, hash_cube_t *h1);
 unsigned int hash_cube_index(hash_cube_t *h);
-cube *reconstruct(hash_cube_t *h);
+cube *reconstruct_corners(hash_cube_t *h);
 hash_cube_t decompress(char *s);
 
 cube *turn_u(cube *c);

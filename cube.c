@@ -56,7 +56,7 @@ bool cube_compare(cube *x, cube *y) {
   return true;
 }
 
-cube *corner_cube(void) {
+cube *cube_corners(void) {
   cube *c = init_cube();
   bool even = true;
   for (int offset = 0; offset < 54; offset += 9) {
@@ -274,8 +274,8 @@ unsigned int hash_cube_index(hash_cube_t *h) {
   return hash;
 }
 
-cube *reconstruct(hash_cube_t *h) {
-  cube *c = corner_cube();
+cube *reconstruct_corners(hash_cube_t *h) {
+  cube *c = cube_corners();
   int bit_position = 0;
   for (int i = 0; i < NUM_STICKERS; ++i) {
     if (c->stickers[i] == BLANK || is_center(i)) {
@@ -291,7 +291,7 @@ cube *reconstruct(hash_cube_t *h) {
 }
 
 hash_cube_t decompress(char *s) {
-  cube *c = corner_cube();
+  cube *c = cube_corners();
   int index = 0;
   for (int i = 0; i < NUM_STICKERS; ++i) {
     if (c->stickers[i] == BLANK || is_center(i)) {
