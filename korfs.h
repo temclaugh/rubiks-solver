@@ -16,6 +16,6 @@ void load_corner_table(char *path);
 cube *get_scramble();
 void print_solution();
 int heuristic(cube *c);
-int search(cube *c, int depth, int bound);
+int search(cube *c, int depth, int bound, move_t prev_move, move_t prev_prev_mode);
 
 #endif

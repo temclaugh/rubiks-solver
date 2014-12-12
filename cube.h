@@ -15,6 +15,7 @@ typedef enum {
   BLUE = 4,
   GREEN = 5,
   BLANK = 6,
+  EMPTY_EDGE = 7,
 } color_t;
 
 typedef enum {
@@ -46,7 +47,9 @@ cube *init_cube(void);
 void delete_cube(cube *c);
 bool cube_solved(cube *c);
 bool cube_compare(cube *x, cube *y);
-cube *cube_corners(void);
+cube *cube_corners(cube *c);
+cube *cube_edges1(cube *c);
+cube *cube_edges2(cube *c);
 cube *extract_corners(cube *c);
 char color2char(color_t color);
 char *move2string(move_t move);
@@ -58,7 +61,12 @@ hash_cube_t hash_cube(cube *c);
 bool hash_cube_equals(hash_cube_t *h0, hash_cube_t *h1);
 unsigned int hash_cube_index(hash_cube_t *h);
 cube *reconstruct_corners(hash_cube_t *h);
-hash_cube_t decompress(char *s);
+cube *reconstruct_edges1(hash_cube_t *h);
+cube *reconstruct_edges2(hash_cube_t *h);
+hash_cube_t decompress(char *s, cube *(*init)(cube*));
+cube *copy_cube(cube *c);
+bool same_face(move_t a, move_t b);
+bool opposite_face(move_t a, move_t b);
 
 cube *turn_u(cube *c);
 cube *turn_u_(cube *c);

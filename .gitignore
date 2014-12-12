@@ -3,3 +3,5 @@ create_tables
 ocaml/
 *.o
 corners.csv
+edges1.csv
+edges2.csv

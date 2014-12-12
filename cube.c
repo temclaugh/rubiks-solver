@@ -6,11 +6,16 @@
 #include "cube.h"
 
 cube *(*cube_expand[18])(cube *c) = {
-  turn_u, turn_u_, turn_u2, turn_d, turn_d_,
-  turn_d2, turn_l, turn_l_, turn_l2, turn_r,
-  turn_r_, turn_r2, turn_f, turn_f_, turn_f2,
+  turn_u, turn_u_, turn_u2,
+  turn_d, turn_d_, turn_d2,
+  turn_l, turn_l_, turn_l2,
+  turn_r, turn_r_, turn_r2,
+  turn_f, turn_f_, turn_f2,
   turn_b, turn_b_, turn_b2,
 };
+
+int edges1[] = {1, 5, 12, 28, 32, 34, 37, 39, 41, 43, 50, 52};
+int edges2[] = {3, 7, 10, 14, 16, 19, 21, 23, 25, 30, 46, 48};
 
 cube *init_cube(void) {
   cube *c = malloc(sizeof(cube));
@@ -47,6 +52,20 @@ cube *copy_cube(cube *c) {
   return c_;
 }
 
+bool same_face(move_t a, move_t b) {
+  return a / 3 == b / 3;
+}
+
+bool opposite_face(move_t a, move_t b) {
+  if (!(a % 2) && b == a + 1) {
+    return true;
+  }
+  if ((a % 2) && b == a - 1) {
+    return true;
+  }
+  return false;
+}
+
 bool cube_compare(cube *x, cube *y) {
   for (int i = 0; i < NUM_STICKERS; ++i) {
     if (x->stickers[i] != y->stickers[i]) {
@@ -56,8 +75,7 @@ bool cube_compare(cube *x, cube *y) {
   return true;
 }
 
-cube *cube_corners(void) {
-  cube *c = init_cube();
+cube *cube_corners(cube *c) {
   bool even = true;
   for (int offset = 0; offset < 54; offset += 9) {
     for (int i = 0; i < 9; ++i) {
@@ -68,6 +86,39 @@ cube *cube_corners(void) {
       }
     }
     even = !even;
+  }
+  return c;
+}
+
+cube *cube_edges1(cube *c) {
+  int index1 = 0;
+  int index2 = 0;
+  for (int i = 0; i < NUM_STICKERS; ++i) {
+    if (i != edges1[index1] && i != edges2[index2]) {
+      c->stickers[i] = BLANK;
+    } else if (i == edges2[index2]){
+      c->stickers[i] = EMPTY_EDGE;
+      ++index2;
+    }
+    else {
+      ++index1;
+    }
+  }
+  return c;
+}
+cube *cube_edges2(cube *c) {
+  int index1 = 0;
+  int index2 = 0;
+  for (int i = 0; i < NUM_STICKERS; ++i) {
+    if (i != edges2[index1] && i != edges1[index2]) {
+      c->stickers[i] = BLANK;
+    } else if (i == edges1[index2]){
+      c->stickers[i] = EMPTY_EDGE;
+      ++index2;
+    }
+    else {
+      ++index1;
+    }
   }
   return c;
 }
@@ -104,6 +155,8 @@ char color2char(color_t color) {
       return 'G';
     case BLANK:
       return '_';
+    case EMPTY_EDGE:
+      return 'x';
   }
   return '?';
 }
@@ -167,17 +220,19 @@ int char2color(char c) {
       return GREEN;
     case '_':
       return BLANK;
+    case 'x':
+      return EMPTY_EDGE;
   }
   return -1;
 }
 
 void print_cube(cube* c) {
   for (int i = 0; i < 3; ++i) {
-    printf("            ");
+    printf("      ");
     for (int j = 0; j < 3; ++j) {
       int index = 3 * i + j;
       char color = color2char(c->stickers[index]);
-      printf("%c%d ", color, index);
+      printf("%c ", color);
     }
     printf("\n");
   }
@@ -186,17 +241,17 @@ void print_cube(cube* c) {
       for (int j = 0; j < 3; ++j) {
         int index = offset + 3 * i + j;
         char color = color2char(c->stickers[index]);
-        printf("%c%d ", color, index);
+        printf("%c ", color);
       }
     }
     printf("\n");
   }
   for (int i = 0; i < 3; ++i) {
-    printf("            ");
+    printf("      ");
     for (int j = 0; j < 3; ++j) {
       int index = 45 + 3 * i + j;
       char color = color2char(c->stickers[index]);
-      printf("%c%d ", color, index);
+      printf("%c ", color);
     }
     printf("\n");
   }
@@ -275,7 +330,22 @@ unsigned int hash_cube_index(hash_cube_t *h) {
 }
 
 cube *reconstruct_corners(hash_cube_t *h) {
-  cube *c = cube_corners();
+  cube *c = cube_corners(init_cube());
+  int bit_position = 0;
+  for (int i = 0; i < NUM_STICKERS; ++i) {
+    if (c->stickers[i] == BLANK || is_center(i)) {
+      continue;
+    }
+    int byte_position = bit_position / 8;
+    int offset = bit_position % 8;
+    int val = (h->h[byte_position] >> (COLOR_ENTROPY - offset)) & 15;
+    c->stickers[i] = val;
+    bit_position += COLOR_ENTROPY;
+  }
+  return c;
+}
+cube *reconstruct_edges1(hash_cube_t *h) {
+  cube *c = cube_edges1(init_cube());
   int bit_position = 0;
   for (int i = 0; i < NUM_STICKERS; ++i) {
     if (c->stickers[i] == BLANK || is_center(i)) {
@@ -290,8 +360,24 @@ cube *reconstruct_corners(hash_cube_t *h) {
   return c;
 }
 
-hash_cube_t decompress(char *s) {
-  cube *c = cube_corners();
+cube *reconstruct_edges2(hash_cube_t *h) {
+  cube *c = cube_edges2(init_cube());
+  int bit_position = 0;
+  for (int i = 0; i < NUM_STICKERS; ++i) {
+    if (c->stickers[i] == BLANK || is_center(i)) {
+      continue;
+    }
+    int byte_position = bit_position / 8;
+    int offset = bit_position % 8;
+    int val = (h->h[byte_position] >> (COLOR_ENTROPY - offset)) & 15;
+    c->stickers[i] = val;
+    bit_position += COLOR_ENTROPY;
+  }
+  return c;
+}
+
+hash_cube_t decompress(char *s, cube *(*init)(cube*)) {
+  cube *c = init(init_cube());
   int index = 0;
   for (int i = 0; i < NUM_STICKERS; ++i) {
     if (c->stickers[i] == BLANK || is_center(i)) {
@@ -305,6 +391,7 @@ hash_cube_t decompress(char *s) {
   return h;
 
 }
+
 
 int clockwise(int i) { return (i / 3) + (6 - 3 * (i % 3)); }
 int counter_clockwise(int i) { return 2 - (i / 3) + 3 * (i % 3); }

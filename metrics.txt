@@ -2,4 +2,13 @@
 4.67 GB peak memory for generating corner table
 size of corners.csv = 2.4 GB
 
+
+./create_tables edges1 > edges1.csv  364.28s user 4.94s system 99% cpu 6:11.37 total
+2.7 GB peak memory for generating corner table
+size of edges1.csv = 1.15 GB
+
+./create_tables edges2 > edges2.csv  363.27s user 4.72s system 99% cpu 6:10.07 total
+2.7 GB peak memory for generating corner table
+size of edges1.csv = 1.15 GB
+
 ./korfs  96.01s user 3.09s system 99% cpu 1:39.11 total

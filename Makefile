@@ -1,5 +1,5 @@
 CC=clang
-CFLAGS=-Wall -O3 -g
+CFLAGS=-Wall -O3 -ggdb3
 all:
 	$(CC) $(CFLAGS) -c cube.c
 	$(CC) $(CFLAGS) -c queue.c
