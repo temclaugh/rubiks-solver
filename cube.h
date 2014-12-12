@@ -1,8 +1,21 @@
+#ifndef CUBE_H
+#define CUBE_H
 #define NUM_FACES 6
 #define NUM_FACE_STICKERS 9
 #define NUM_STICKERS NUM_FACES * NUM_FACE_STICKERS
+#define COLOR_ENTROPY 4
 
-typedef enum {WHITE, YELLOW, RED, ORANGE, BLUE, GREEN, BLANK} color_t;
+
+typedef enum {
+  WHITE = 0,
+  YELLOW = 1,
+  RED = 2,
+  ORANGE = 3,
+  BLUE = 4,
+  GREEN = 5,
+  BLANK = 6,
+} color_t;
+
 typedef enum {
   U, U_, U2,
   D, D_, D2,
@@ -18,9 +31,11 @@ typedef struct {
 } cube;
 
 typedef struct {
-  cube c;
-  unsigned char prev_move;
-} cube_node;
+  unsigned char h[12];
+} hash_cube_t;
+
+typedef hash_cube_t QUEUE_DATA;
+typedef hash_cube_t HASH_DATA;
 
 cube *init_cube(void);
 void delete_cube(cube *c);
@@ -29,6 +44,12 @@ cube *corner_cube(void);
 char color2char(color_t color);
 void print_cube(cube* c);
 void print_cube_flat(cube* c);
+bool is_center(int index);
+hash_cube_t hash_cube(cube *c);
+bool hash_cube_equals(hash_cube_t *h0, hash_cube_t *h1);
+unsigned int hash_cube_index(hash_cube_t *h);
+cube *reconstruct(hash_cube_t *h);
+
 cube *turn_u(cube *c);
 cube *turn_u_(cube *c);
 cube *turn_u2(cube *c);
@@ -48,3 +69,4 @@ cube *turn_b(cube *c);
 cube *turn_b_(cube *c);
 cube *turn_b2(cube *c);
 
+#endif

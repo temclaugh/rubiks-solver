@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 #include "cube.h"
 
@@ -76,12 +77,11 @@ char color2char(color_t color) {
 
 void print_cube(cube* c) {
   for (int i = 0; i < 3; ++i) {
-    printf("      ");
+    printf("            ");
     for (int j = 0; j < 3; ++j) {
       int index = 3 * i + j;
       char color = color2char(c->stickers[index]);
-      //printf("%c%2d", color, index);
-      printf("%c ", color);
+      printf("%c%d ", color, is_center(index));
     }
     printf("\n");
   }
@@ -90,17 +90,17 @@ void print_cube(cube* c) {
       for (int j = 0; j < 3; ++j) {
         int index = offset + 3 * i + j;
         char color = color2char(c->stickers[index]);
-        printf("%c ", color);
+        printf("%c%d ", color, is_center(index));
       }
     }
     printf("\n");
   }
   for (int i = 0; i < 3; ++i) {
-    printf("      ");
+    printf("            ");
     for (int j = 0; j < 3; ++j) {
       int index = 45 + 3 * i + j;
       char color = color2char(c->stickers[index]);
-      printf("%c ", color);
+      printf("%c%d ", color, is_center(index));
     }
     printf("\n");
   }
@@ -113,6 +113,79 @@ void print_cube_flat(cube* c) {
     output[i] = color2char(c->stickers[i]);
   }
   printf("%s\n", output);
+}
+
+bool is_center(int index) {
+  return index % 9 == 4;
+}
+
+void print_bin(int n) {
+  char s[9];
+  memset(s, '0', 8);
+  s[8] = '\0';
+  int i = 0;
+  while (n) {
+    if (n & 1) {
+      s[7 - i] = '1';
+    }
+    n >>= 1;
+    ++i;
+  }
+  printf("%s", s);
+}
+
+hash_cube_t hash_cube(cube *c) {
+  hash_cube_t h;
+  memset(h.h, 0, 12);
+  int bit_position = 0;
+  for (int i = 0; i < NUM_STICKERS; ++i) {
+    if (c->stickers[i] == BLANK || is_center(i)) {
+      continue;
+    }
+    int byte_position = bit_position / 8;
+    int offset = bit_position % 8;
+    unsigned int result = c->stickers[i] << (COLOR_ENTROPY - offset);
+    h.h[byte_position] |= result;
+    //printf("%c = %d at index %d. byte position: %d, bit position %d, offset: %d, result: ", color2char(c->stickers[i]), c->stickers[i], i, byte_position, bit_position, offset);
+    //print_bin(result);
+    //printf("\n");
+    bit_position += COLOR_ENTROPY;
+  }
+  return h;
+}
+
+bool hash_cube_equals(hash_cube_t *h0, hash_cube_t *h1) {
+  for (int i = 0; i < 12; ++i) {
+    if (h0->h[i] != h1->h[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+unsigned int hash_cube_index(hash_cube_t *h) {
+  unsigned int hash = 2166136261;
+  for (int i = 0; i < 12; ++i) {
+    hash *= 16777619;
+    hash ^= h->h[i];
+  }
+  return hash;
+}
+
+cube *reconstruct(hash_cube_t *h) {
+  cube *c = corner_cube();
+  int bit_position = 0;
+  for (int i = 0; i < NUM_STICKERS; ++i) {
+    if (c->stickers[i] == BLANK || is_center(i)) {
+      continue;
+    }
+    int byte_position = bit_position / 8;
+    int offset = bit_position % 8;
+    int val = (h->h[byte_position] >> (COLOR_ENTROPY - offset)) & 15;
+    c->stickers[i] = val;
+    bit_position += COLOR_ENTROPY;
+  }
+  return c;
 }
 
 int clockwise(int i) { return (i / 3) + (6 - 3 * (i % 3)); }
