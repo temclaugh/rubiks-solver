@@ -111,26 +111,44 @@ char color2char(color_t color) {
 char *move2string(move_t move) {
   switch (move) {
     case U: return "U";
-    case U_: return "U_";
+    case U_: return "U'";
     case U2: return "U2";
     case D: return "D";
-    case D_: return "D_";
+    case D_: return "D'";
     case D2: return "D2";
     case L: return "L";
-    case L_: return "L_";
+    case L_: return "L'";
     case L2: return "L2";
     case R: return "R";
-    case R_: return "R_";
+    case R_: return "R'";
     case R2: return "R2";
     case F: return "F";
-    case F_: return "F_";
+    case F_: return "F'";
     case F2: return "F2";
     case B: return "B";
-    case B_: return "B_";
+    case B_: return "B'";
     case B2: return "B2";
     case NO_MOVE: return "NO_MOVE";
   }
   return "?";
+}
+
+move_t string2move(char *str) {
+  char *moves[] = {
+    "U", "U'", "U2",
+    "D", "D'", "D2",
+    "L", "L'", "L2",
+    "R", "R'", "R2",
+    "F", "F'", "F2",
+    "B", "B'", "B2",
+    "NO_MOVE",
+  };
+  for (int i = 0; i < NUM_TURNS; ++i) {
+    if (!strcmp(str, moves[i])) {
+      return i;
+    }
+  }
+  return NO_MOVE;
 }
 
 int char2color(char c) {

@@ -1,4 +1,3 @@
-#include "stack.h"
 #include "korfs.h"
 
 hash_set_t corner_table;
@@ -6,8 +5,8 @@ hash_set_t corner_table;
 move_t solution[20];
 int solution_length;
 
-hash_set_t load_corner_table(char *path) {
-  hash_set_t hash_set = new_hash_set(hash_cube_index, hash_cube_equals);
+void load_corner_table(char *path) {
+  corner_table = new_hash_set(hash_cube_index, hash_cube_equals);
   FILE *fp = fopen(path, "r");
   char buf[256];
   int counter = 0;
@@ -25,14 +24,29 @@ hash_set_t load_corner_table(char *path) {
     int dist = atoi(comma_position + 1);
     hash_cube_t h = decompress(compressed_cube);
     h.dist = dist;
-    insert(&hash_set, &h);
+    insert(&corner_table, &h);
     if (counter > 10000) {
       break;
     }
   }
-
   fclose(fp);
-  return hash_set;
+}
+
+cube *get_scramble() {
+  cube *c = init_cube();
+  char buf[8];
+  while (scanf("%s", (char*) &buf) == 1) {
+    move_t move = string2move(buf);
+    if (move == NO_MOVE) {
+      printf("Error: invalid scramble");
+      return NULL;
+    }
+    cube *temp = c;
+    c = cube_expand[move](c);
+    delete_cube(temp);
+  }
+  return c;
+
 }
 
 void print_solution() {
@@ -44,22 +58,22 @@ void print_solution() {
 int heuristic(cube *c) {
   cube *c_ = extract_corners(c);
   hash_cube_t h = hash_cube(c_);
-  int dist = hash_lookup(&corner_table, &h);
+  int h0 = hash_lookup(&corner_table, &h);
   delete_cube(c_);
-  return dist;
+  return h0;
 }
 
 int search(cube *c, int depth, int bound) {
-  int cost = depth + heuristic(c);
-  if (cost > bound) {
-    return cost;
+  int guess = depth + heuristic(c);
+  if (guess > bound) {
+    return guess;
   }
   if (cube_solved(c)) {
     solution_length = depth;
     return FOUND;
   }
   int min = INT_MAX;
-  for (int i = 0; i < 18; ++i) {
+  for (int i = 0; i < NUM_TURNS; ++i) {
     cube *c_ = cube_expand[i](c);
     int t = search(c_, depth + 1, bound);
     delete_cube(c_);
@@ -75,23 +89,22 @@ int search(cube *c, int depth, int bound) {
 }
 
 int main(void) {
-  corner_table = load_corner_table("corners.csv");
-  cube *c0 = init_cube();
-  cube *c1 = turn_r(c0);
-  cube *c2 = turn_u(c1);
-  cube *c3 = turn_d(c2);
+  load_corner_table("corners.csv");
+  cube *c = get_scramble();
+  print_cube(c);
+  if (c == NULL) {
+    return 0;
+  }
 
-  int bound = heuristic(c3);
+  int bound = heuristic(c);
   while (1) {
-    //int t = search(c3);
-    int t = 0;
+    int t = search(c, 0, bound);
     if (t == FOUND) {
       print_solution();
       break;
     }
+    bound = t;
   }
-  heuristic(c0);
-  //int solved = search(c3, 0, )
-
+  delete_cube(c);
   free_hash_set(&corner_table);
 }

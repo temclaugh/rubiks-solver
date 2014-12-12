@@ -8,14 +8,14 @@
 
 #include "cube.h"
 #include "hash_set.h"
+#include "stack.h"
 
 #define FOUND -1
 
-hash_set_t load_corner_table(char *path);
+void load_corner_table(char *path);
+cube *get_scramble();
 void print_solution();
 int heuristic(cube *c);
-
-
-
+int search(cube *c, int depth, int bound);
 
 #endif

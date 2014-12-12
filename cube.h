@@ -4,6 +4,8 @@
 #define NUM_FACE_STICKERS 9
 #define NUM_STICKERS NUM_FACES * NUM_FACE_STICKERS
 #define COLOR_ENTROPY 4
+#define NUM_TURNS 18
+
 
 typedef enum {
   WHITE = 0,
@@ -38,7 +40,7 @@ typedef hash_cube_t QUEUE_DATA;
 typedef hash_cube_t HASH_DATA;
 typedef int STACK_DATA;
 
-cube *(*cube_expand[18])(cube *c);
+cube *(*cube_expand[NUM_TURNS])(cube *c);
 
 cube *init_cube(void);
 void delete_cube(cube *c);
@@ -48,6 +50,7 @@ cube *corner_cube(void);
 cube *extract_corners(cube *c);
 char color2char(color_t color);
 char *move2string(move_t move);
+move_t string2move(char *str);
 void print_cube(cube* c);
 void print_cube_flat(cube* c);
 bool is_center(int index);

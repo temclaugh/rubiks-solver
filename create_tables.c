@@ -8,12 +8,14 @@
 
 #define TOTAL_NODES 88179840
 
-int main(void) {
-
+void generate_corners(cube *(*construct_cube)(void),
+                      cube *(*reconstruct)(hash_cube_t*),
+                      hash_cube_t (*hash_cube)(cube*)
+                      ) {
   hash_set_t hash_set = new_hash_set(hash_cube_index, hash_cube_equals);
   queue q = new_queue();
 
-  cube *c0 = corner_cube();
+  cube *c0 = construct_cube();
   hash_cube_t h0 = hash_cube(c0);
   delete_cube(c0);
 
@@ -51,5 +53,22 @@ int main(void) {
 
   free_queue(&q);
   free_hash_set(&hash_set);
-  return 0;
+}
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    fprintf(stderr, "Usage: ./create_table {corners, edge1, edge2}\n");
+    return 0;
+  }
+  if (!strcmp(argv[1], "corners")) {
+    fprintf(stderr, "you chose corners");
+    generate_corners(corner_cube, reconstruct, hash_cube);
+  } else if (!strcmp(argv[1], "edge1")) {
+    fprintf(stderr, "you chose edge1");
+  } else if (!strcmp(argv[1], "edge2")) {
+    fprintf(stderr, "you chose edge2");
+  } else {
+    fprintf(stderr, "Usage: ./create_table {corners, edge1, edge2}\n");
+    return 0;
+  }
 }
