@@ -4,7 +4,6 @@
 
 #include "cube.h"
 
-
 int main(void) {
   cube *c0 = init_cube();
   cube *c1 = turn_r_(c0);
