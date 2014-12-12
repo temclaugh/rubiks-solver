@@ -2,3 +2,4 @@ cube
 create_tables
 ocaml/
 *.o
+corners.csv

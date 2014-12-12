@@ -1,0 +1,2 @@
+./create_tables > corners.csv  707.84s user 9.60s system 99% cpu 11:58.08 total
+4.67 GB peak memory for generating corner table
