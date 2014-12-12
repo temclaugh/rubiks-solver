@@ -24,6 +24,7 @@ void enqueue(queue *q, QUEUE_DATA val) {
   ++q->sz;
 }
 
+
 QUEUE_DATA dequeue(queue *q) {
   if (q->sz == 0) {
     fprintf(stderr, "error: attempting to dequeue empty queue\n");
@@ -45,6 +46,15 @@ QUEUE_DATA dequeue(queue *q) {
     --q->sz;
   }
   return val;
+}
+
+void free_queue(queue *q) {
+  queue_node *ptr = q->tail;
+  while (ptr) {
+    queue_node *temp = ptr;
+    ptr = ptr->next;
+    free(temp);
+  }
 }
 
 int queue_size(queue *q) {

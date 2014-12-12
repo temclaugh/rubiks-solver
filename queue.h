@@ -27,6 +27,7 @@ typedef struct {
 queue new_queue(void);
 void enqueue(queue *q, QUEUE_DATA c_n);
 QUEUE_DATA dequeue(queue *q);
+void free_queue(queue *q);
 int queue_size(queue *q);
 
 #endif

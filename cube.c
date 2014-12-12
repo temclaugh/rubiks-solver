@@ -6,8 +6,6 @@
 #include "cube.h"
 
 cube *init_cube(void) {
-  printf("bool size: %lu\n", sizeof(true));
-  printf("cube size: %lu\n", sizeof(cube));
   cube *c = malloc(sizeof(cube));
   color_t colors[] = {YELLOW, GREEN, ORANGE, BLUE, RED, WHITE};
   for (int i = 0; i < NUM_FACES; ++i) {
@@ -107,17 +105,23 @@ void print_cube(cube* c) {
   printf("\n");
 }
 
-void print_cube_flat(cube* c) {
-  char output[NUM_STICKERS];
-  for (int i = 0; i < NUM_STICKERS; ++i) {
-    output[i] = color2char(c->stickers[i]);
-  }
-  printf("%s\n", output);
-}
-
 bool is_center(int index) {
   return index % 9 == 4;
 }
+
+void print_cube_flat(cube* c) {
+  char output[25];
+  output[24] = '\0';
+  int index = 0;
+  for (int i = 0; i < NUM_STICKERS; ++i) {
+    if (c->stickers[i] == BLANK || is_center(i)) {
+      continue;
+    }
+    output[index++] = color2char(c->stickers[i]);
+  }
+  printf("%s", output);
+}
+
 
 void print_bin(int n) {
   char s[9];
