@@ -1,11 +1,4 @@
 cube
-createTable
-*.annot
-*.cmo
-*.cma
-*.cmi
-*.a
+create_tables
+ocaml/
 *.o
-*.cmx
-*.cmxs
-*.cmxa
